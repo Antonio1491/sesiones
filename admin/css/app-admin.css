@@ -1,0 +1,35 @@
+nav{
+  background: #f7f4f4;
+  height: 97vh;
+}
+header{
+  background-color: #439dc9;
+  height: 2em;
+}
+footer{
+  height: 3vh;
+  background: #f7f4f4
+}
+.menu{
+  padding-top: 5vh;
+}
+.contenido{
+  margin-top: 2em;
+}
+
+legend h5{
+  color: #257cbb;
+}
+td{
+  font-size: 13px;
+  color: #6a6a6a;
+}
+.eliminar{
+  color: #b30000;
+}
+
+.registro{
+  display: none;
+}
+
+/*==========================  Avisos  =============================*/
