@@ -12,6 +12,7 @@ $vp = $verificarPassword->campoDefinido($password);
 
 if($ve && $vp ){ //ambos campos están definidos
     $conexionBd = new Conexion("localhost", "root", "", "sip2018");
+    // $conexionBd = new Conexion("localhost", "anprorgm_admin", "Admin_*2016", "anprorgm_sic");
     $sql = "SELECT * FROM usuarios WHERE usuario = '$email' AND password = '$password' ";
     if ($resultado = $conexionBd->consultar($sql)) {
       while ($fila = mysqli_fetch_array($resultado)){

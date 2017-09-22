@@ -1,6 +1,7 @@
 <?php session_start();
 require("../inc/clases.php");
 $conexion = new Conexion("localhost", "root", "", "sip2018");
+// $conexion = new Conexion("localhost", "anprorgm_admin", "Admin_*2016", "anprorgm_sic");
  ?>
 <!DOCTYPE html>
 <html>
@@ -22,7 +23,7 @@ $conexion = new Conexion("localhost", "root", "", "sip2018");
       <div class="column medium-10 contenido">
         <div class="row">
           <div class="column ">
-            <button type="button" name="button" id="agregar" class="button">Agregar Conferencia</button>
+            <button type="button" name="button" id="agregar" class="button"><i class="fi-plus"></i> Agregar Conferencia</button>
           </div>
         </div>
         <div class="registro">

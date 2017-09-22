@@ -1,9 +1,11 @@
 <nav>
   <ul class="vertical menu">
-    <li><a href="usuarios.php">Usuarios</a></li>
-    <li><a href="conferencias.php">Conferencias</a></li>
-    <li><a href="#">Documentos</a></li>
-    <li><a href="#">Firmas</a></li>
+    <li><a href="usuarios.php"><i class="fi-torsos-all"></i> Usuarios</a></li>
+    <li><a href="conferencias.php"><i class="fi-megaphone"></i> Conferencias</a></li>
+    <li><a href="#"><i class="fi-folder"></i> Documentos</a></li>
+    <li><a href="#"><i class="fi-checkbox"></i> Firmas</a></li>
+    <li><a href="closet.php"><i class="fi-power"></i> Salir</a></li>
     <!-- <li><a href="temas.php">Temas</a></li> -->
   </ul>
+
 </nav>

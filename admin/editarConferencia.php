@@ -21,7 +21,9 @@ require("../inc/clases.php");
       </div>
       <div class="column medium-10 contenido">
         <div class="">
-          <?php $conexion = new Conexion("localhost", "root", "", "sip2018");
+          <?php
+          // $conexion = new Conexion("localhost", "anprorgm_admin", "Admin_*2016", "anprorgm_sic");
+          $conexion = new Conexion("localhost", "root", "", "sip2018");
           $sql = "SELECT  a.nombre, a.fecha, a.hora, a.lugar, a.descripcion, a.id_tema, b.id_tema, b.nombre
           FROM conferencias AS a
           LEFT JOIN temas as b ON b.id_tema = a.id_tema

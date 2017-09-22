@@ -15,6 +15,7 @@ $destino = "../img/conferencistas/".$fotografia ;
 copy($extraerNombre, $destino);
 
 $conexion = new Conexion("localhost", "root", "", "sip2018");
+// $conexion = new Conexion("localhost", "anprorgm_admin", "Admin_*2016", "anprorgm_sic");
 $sql = "INSERT INTO usuarios VALUES (null, '$nombre', '$cargo', '$empresa', '$biografia', '$fotografia', '$usuario', '$password', 2, '$conferencia')";
 $conexion->insertarDatos($sql);
 

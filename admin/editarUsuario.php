@@ -23,6 +23,7 @@ require("../inc/clases.php");
       <div class="column medium-10 contenido">
         <div class="">
           <?php
+// $conexion = new Conexion("localhost", "anprorgm_admin", "Admin_*2016", "anprorgm_sic");
 $conexion = new Conexion("localhost", "root", "", "sip2018");
 $sql = "SELECT a.nombre, a.cargo, a.empresa, a.biografia, a.foto, a.id_conferencia, b.nombre
 FROM usuarios  AS a

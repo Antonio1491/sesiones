@@ -95,7 +95,7 @@ class Verificar{
         header('Location:../admin/index.php');
         break;
       case '2':
-        echo "conferencista";
+        header('Location:../ponentes/index.php');
         break;
     }
   }

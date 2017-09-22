@@ -13,6 +13,7 @@ $tema = $_POST['tema'];
  lugar = '$lugar', descripcion = '$descripcion', id_tema = '$tema' WHERE id_conferencia = '$id' ";
 
 $conexion = new Conexion("localhost", "root", "", "sip2018");
+// $conexion = new Conexion("localhost", "anprorgm_admin", "Admin_*2016", "anprorgm_sic");
 $conexion->actualizar($sql);
 
  ?>

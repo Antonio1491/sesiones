@@ -14,6 +14,7 @@ biografia = '$biografia', id_conferencia = '$conferencia'
 WHERE id_usuario = '$id'";
 
 $conexion = new Conexion("localhost", "root", "", "sip2018");
+// $conexion = new Conexion("localhost", "anprorgm_admin", "Admin_*2016", "anprorgm_sic");
 $conexion->actualizar($sql);
 
  ?>
