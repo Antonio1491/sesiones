@@ -1,7 +1,6 @@
 <?php session_start();
-require("../inc/clases.php");
-$conexion = new Conexion("localhost", "root", "", "sip2018");
-// $conexion = new Conexion("localhost", "anprorgm_admin", "Admin_*2016", "anprorgm_sic");
+require("../inc/clases2.php");
+
  ?>
 <!DOCTYPE html>
 <html>
@@ -20,10 +19,13 @@ $conexion = new Conexion("localhost", "root", "", "sip2018");
       <div class="column medium-2">
         <?php include("menu.php") ?>
       </div>
+
       <div class="column medium-10 contenido">
         <div class="row">
           <div class="column ">
-            <button type="button" name="button" id="agregar" class="button"><i class="fi-plus"></i> Agregar Conferencia</button>
+            <button type="button" name="button" id="agregar" class="button">
+              <i class="fi-plus"></i> Agregar Conferencia
+            </button>
           </div>
         </div>
         <div class="registro">
@@ -46,23 +48,55 @@ $conexion = new Conexion("localhost", "root", "", "sip2018");
                   <input type="date" name="fecha" value="" placeholder="Día/Mes/Año">
                 </div>
                 <div class="column medium-2">
-                  <label for="">Hora:</label>
-                  <input type="time" name="hora" value="" placeholder="00:00">
+                  <label for="">Hora Inicio:</label>
+                  <input type="time" name="hora" value="" placeholder="00:00:00">
                 </div>
+                <div class="column medium-2">
+                  <label for="">Hora Fin:</label>
+                  <input type="time" name="hora_fin" value="" placeholder="00:00:00">
+                </div>
+                <!-- <div class="column medium-2">
+                  <label for="">Tipo:
+                    <select name="tipo">
+                      <?php
+                           $lista_tipos = new MostrarConferencia();
+
+                          $array = $lista_tipos->tipoConferencia();
+
+                          foreach ($array as $tipo) {
+
+                            echo "<option value='".$tipo['id_tipo']."'>".$tipo['tipo']."</option>";
+
+                          }
+
+                      ?>
+                    </select>
+                  </label>
+                </div> -->
+              </div>
+              <div class="row ">
                 <div class="column medium-4">
                   <label for="">Lugar:</label>
                   <input type="text" name="lugar" value="">
                 </div>
-              </div>
-              <div class="row ">
                 <div class="column medium-4">
                   <label>Tema:
                     <select name="tema">
-                      <?php $sql = "SELECT * FROM temas";
-                            $resultado = $conexion->consultar($sql);
-                            while ($fila = mysqli_fetch_array($resultado)) {
-                              echo "<option value='".$fila['id_tema']."'>".$fila['nombre']."</option>";
-                            }
+                      <?php
+                          $lista_de_temas = new ListaTemas();
+
+                          $lista = $lista_de_temas->desplegarTemas();
+
+                          foreach ($lista as $valor) {
+
+                            echo "<option value='".$valor['id_tema']."'>".$valor['nombre']."</option>";
+
+                          }
+                            // $sql = "SELECT * FROM temas";
+                            // $resultado = $conexion->consultar($sql);
+                            // while ($fila = mysqli_fetch_array($resultado)) {
+                            //   echo "<option value='".$fila['id_tema']."'>".$fila['nombre']."</option>";
+                            // }
                       ?>
                     </select>
                   </label>
@@ -80,33 +114,49 @@ $conexion = new Conexion("localhost", "root", "", "sip2018");
             </fieldset>
           </form>
         </div>
-        <div class="row" id="listaConferencias">
-          <div class="column medium-12">
-            <?php
-              $sql = "SELECT * FROM conferencias WHERE id_conferencia > 0 ";
-              $resultado = $conexion->consultar($sql);
-              echo "<table>
-                      <thead>
-                        <tr>
-                          <th>Nombre</th>
-                        </tr>
-                      </thead>
-                      <tbody>";
-                      while ($fila = mysqli_fetch_array($resultado)) {
-                        echo "
-                        <tr>
-                          <td>" .$fila['nombre']. "</td>
-                          <td><a href='editarConferencia.php?id=".$fila['id_conferencia']."' title='Editar'><i class='fi-pencil'></i></a></td>
-                          <td><a href='eliminar.php?id=".$fila['id_conferencia']."&tabla=conferencias&columna=id_conferencia' title='Eliminar' class='eliminar'><i class='fi-x'></i> </a></td>
-                          </tr>";
-                        }
-                      echo "
-                      </tbody>
-                    </table>";
-             ?>
-          </div>
-        </div>
+
+
+
+      <div class="row" id="listaConferencias">
+
+
+          <?php
+
+              $lista_conferencias = new MostrarConferencia();
+
+              $respuesta = $lista_conferencias->listaConferencias();
+
+            echo "<table>
+                    <thead>
+                      <tr>
+                        <th>Nombre</th>
+                        <th>Inicio</th>
+                        <th>Fin</th>
+                        <th>Lugar</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                      </tr>
+                    </thead>
+                    <tbody>";
+
+                    foreach ($respuesta as $valor) {
+                        echo "<tr>
+                        <td>" .$valor['nombre_conferencia']. "</td>
+                        <td>" .$valor['hora']. "</td>
+                        <td>" .$valor['hora_fin']. "</td>
+                        <td>" .$valor['lugar']. "</td>
+                        <td><a href='editarConferencia.php?id=".$valor['id_conferencia']."' title='Editar'><i class='fi-pencil'></i></a></td>
+                        <td><a href='eliminarConferencia.php?id=".$valor['id_conferencia']."' title='Eliminar' class='eliminar'><i class='fi-x'></i> </a></td>
+                        </tr>";
+                      }
+                    echo "
+                    </tbody>
+                  </table>";
+           ?>
+
       </div>
+    </div>
+
     </main>
 
   </body>

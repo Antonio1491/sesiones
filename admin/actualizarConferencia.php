@@ -1,19 +1,39 @@
 <?php session_start();
+
 $id = $_GET['id'];
-require("../inc/clases.php");
+
+require("../inc/clases2.php");
 
 $conferencia = $_POST['conferencia'];
 $fecha = $_POST['fecha'];
 $hora = $_POST['hora'];
+$hora_fin = $_POST['hora_fin'];
 $lugar = $_POST['lugar'];
 $descripcion = $_POST['descripcion'];
 $tema = $_POST['tema'];
 
- $sql = "UPDATE conferencias SET nombre = '$conferencia', fecha = '$fecha', hora = '$hora',
- lugar = '$lugar', descripcion = '$descripcion', id_tema = '$tema' WHERE id_conferencia = '$id' ";
+$actualizar = new ActualizarConferencia();
 
-$conexion = new Conexion("localhost", "root", "", "sip2018");
-// $conexion = new Conexion("localhost", "anprorgm_admin", "Admin_*2016", "anprorgm_sic");
-$conexion->actualizar($sql);
+$resultado = $actualizar->actualizar($conferencia, $fecha, $hora,
+                                    $hora_fin, $lugar, $descripcion,
+                                    $tema, $id);
+
+  if ($resultado) {
+
+      $mensaje = header("Location: conferencias.php");
+
+      echo $mensaje;
+
+      }
+
+      else{
+
+        echo"<script language='JavaScript'>
+              alert('Error: No pudimos actualizar');
+              </script>";
+        echo "<script>window.history.go(-2);</script>";
+
+      }
+
 
  ?>

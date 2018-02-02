@@ -1,9 +1,28 @@
 <?php
 $id = $_GET['id'];
 $tabla = $_GET['tabla'];
-$columna = $_GET['columna'];
-require("../inc/clases.php");
-// $conexion = new Conexion("localhost", "anprorgm_admin", "Admin_*2016", "anprorgm_sic");
-$conexion = new Conexion("localhost", "root", "", "sip2018");
-$conexion->eliminarRegistro($tabla, $columna, $id);
+
+require("../inc/clases2.php");
+
+$eliminar = new EliminarRegistro();
+
+$resultado = $eliminar->eliminar($id, $tabla);
+
+if ($resultado) {
+
+      $mensaje = header("Location: usuarios.php");
+
+      echo $mensaje;
+
+}
+
+else{
+
+      echo"<script language='JavaScript'>
+      alert('No pudimos eliminar el registro');
+      </script>";
+      echo "<script>window.history.go(-1);</script>";
+
+}
+
  ?>

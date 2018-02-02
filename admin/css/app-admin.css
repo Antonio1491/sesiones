@@ -33,3 +33,13 @@ td{
 }
 
 /*==========================  Avisos  =============================*/
+
+
+.firma_no{
+  color: #930c19;
+  font-size: 1.3em;
+}
+.firma_ok{
+  color: #00d084;
+  font-size: 1.4em;
+}

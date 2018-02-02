@@ -1,20 +1,37 @@
 <?php session_start();
-$id = $_GET['id'];
-require("../inc/clases.php");
 
+?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Alta Usuarios</title>
+  </head>
+<?php
+require("../inc/clases2.php");
+$id = $_GET['id'];
 $nombre = $_POST['nombre'];
 $cargo = $_POST['cargo'];
 $empresa = $_POST['empresa'];
 $biografia = $_POST['biografia'];
 $conferencia = $_POST['conferencia'];
 
+$actualizar = new ActualizarUsuario();
 
-$sql = "UPDATE usuarios SET nombre = '$nombre', cargo = '$cargo', empresa = '$empresa',
-biografia = '$biografia', id_conferencia = '$conferencia'
-WHERE id_usuario = '$id'";
+$resultado = $actualizar->actualizar($nombre, $cargo, $empresa, $biografia, $conferencia, $id);
 
-$conexion = new Conexion("localhost", "root", "", "sip2018");
-// $conexion = new Conexion("localhost", "anprorgm_admin", "Admin_*2016", "anprorgm_sic");
-$conexion->actualizar($sql);
+if ($resultado) {
 
- ?>
+          $mensaje = header("Location: usuarios.php");
+
+          echo $mensaje;
+    }
+    else{
+    echo"<script language='JavaScript'>
+    alert('Error: No pudimos actualizar');
+    </script>";
+    echo "<script>window.history.go(-2);</script>";
+    }
+
+?>
+</html>

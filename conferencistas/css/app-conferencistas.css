@@ -1,0 +1,68 @@
+header{
+  background-color: #2ca4a4;
+  height: 45px;
+  color: #fff;
+}
+nav{
+  background-color: #ececec;
+  height: 100vh;
+  padding-top: 4em;
+}
+#bienvenida{
+  margin-top: 5em;
+  color: #555555;
+}
+.subrayado{
+  border-bottom: 1px solid #2ca4a4;
+}
+.contenido-perfil .foto{
+  height: 200px;
+  float: left;
+  margin-right: 30px;
+  margin-top: 30px;
+}
+.contenido-perfil{
+  text-align: justify;
+}
+#informacion-perfil{
+  margin-top: 3em;
+}
+#editar-perfil{
+  display: none;
+}
+#editar-perfil h4, #informacion-perfil strong, #editar-perfil label {
+  color: #2ca4a4;
+}
+#editar-perfil label{
+  font-weight: bold;
+}
+
+/*========================  Formulario de portafolio  ===============*/
+#form-portafolio{
+  margin: 5em 20em;
+}
+#form-portafolio h4{
+  color: rgb(63, 85, 85);
+
+}
+
+
+
+
+#acuerdos{
+  margin-top: 2em;
+  color: #6b6b6c;
+}
+#acuerdos h4{
+  color:  rgb(63, 85, 85);
+}
+#acuerdos h5{
+  color: rgb(83, 83, 83);
+}
+.datos_conferencia {
+  margin: 3em 0 0 4em;
+}
+.datos_conferencia span{
+  color: #029892;
+  font-weight: bold;
+}

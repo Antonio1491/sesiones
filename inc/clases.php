@@ -1,4 +1,5 @@
 <?php
+
 class Conexion{
   var $servidor;
   var $usuario;
@@ -13,20 +14,13 @@ class Conexion{
     $this->baseDeDatos = $bd;
 
     $mysql = mysqli_connect($this->servidor, $this->usuario, $this->password, $this->baseDeDatos) or die ("Se perdio la conexión a la Base de Datos");
-    mysqli_select_db($mysql, $this->baseDeDatos) or die ("Error en la Base de Datos seleccionada");
-    mysqli_set_charset($mysql, "utf8");
+    mysqli_select_db($mysql, $this->baseDeDatos) or die ("No se encuentra la Base de Datos seleccionada");
+    $mysql->set_charset("utf8");
     $this->mysql = $mysql;
     return $this->mysql;
   }
-  function iniciarSesionBd(){
-    // $mysql = mysqli_connect($this->servidor, $this->usuario, $this->password, $this->baseDeDatos) or die ("Se perdio la conexión a la Base de Datos");
-    // mysqli_select_db($mysql, $this->baseDeDatos) or die ("Error en la Base de Datos seleccionada");
-    // mysqli_set_charset($mysql, "utf8");
-    // $this->mysql = $mysql;
-    // return $this->mysql;
-  }
   function insertarDatos($consulta){
-    if($resultado = mysqli_query($this->mysql, $consulta)){
+    if(mysqli_query($this->mysql, $consulta)){
       echo"<script language='JavaScript'>
                   alert('Registro realizado con éxito');
                   </script>";
@@ -40,7 +34,7 @@ class Conexion{
     }
   }
   function consultar($sql){
-    $resultado = mysqli_query($this->mysql, $sql);
+    $resultado = $this->mysql->query($sql);
     if ($numFilas = mysqli_num_rows($resultado) >0) {
       return $resultado;
     }
@@ -63,9 +57,8 @@ class Conexion{
     }
 
   }
-  function eliminarRegistro($tabla, $columna, $id){
-    $sql = "DELETE FROM $tabla WHERE $columna = $id";
-    if($resultado = mysqli_query($this->mysql, $sql)){
+  function eliminarRegistro($consulta){
+    if(mysqli_query($this->mysql, $consulta)){
       echo"<script language='JavaScript'>
                   alert('Registro Eliminado');
                   </script>";
@@ -75,6 +68,23 @@ class Conexion{
       echo "No pudimos elimar el registro";
     }
   }
+
+  function consultarFirma($sql){
+    $resultado = mysqli_query($this->mysql, $sql);
+    if ($numFilas = mysqli_num_rows($resultado) >0) {
+        echo"FIRMADO ";
+    }
+    else{
+      echo'
+      <form class="" action="firmar_acuerdo.php" method="post">
+        <input type="checkbox" name="firma" value="ACEPTO">
+        <label for=""><strong>Acepto todos los acuerdos, términos y condiciones.</strong></label>
+        <br><input type="submit" name="" value="Aceptar" class="button">
+      </form>
+      ';
+    }
+  }
+
 }
 
 
@@ -95,10 +105,11 @@ class Verificar{
         header('Location:../admin/index.php');
         break;
       case '2':
-        header('Location:../ponentes/index.php');
+        header('Location:../conferencistas/index.php');
         break;
     }
   }
+
 }
 
 ?>

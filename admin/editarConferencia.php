@@ -1,6 +1,6 @@
 <?php session_start();
 $id = $_GET['id'];
-require("../inc/clases.php");
+require("../inc/clases2.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,68 +22,77 @@ require("../inc/clases.php");
       <div class="column medium-10 contenido">
         <div class="">
           <?php
-          // $conexion = new Conexion("localhost", "anprorgm_admin", "Admin_*2016", "anprorgm_sic");
-          $conexion = new Conexion("localhost", "root", "", "sip2018");
-          $sql = "SELECT  a.nombre, a.fecha, a.hora, a.lugar, a.descripcion, a.id_tema, b.id_tema, b.nombre
-          FROM conferencias AS a
-          LEFT JOIN temas as b ON b.id_tema = a.id_tema
-          WHERE id_conferencia = '$id' " ;
-          $resultado = $conexion->consultar($sql);
-          while ($fila = mysqli_fetch_array($resultado)) {
-          echo '<form class="" action="actualizarConferencia.php?id='.$id.'" method="post">
-              <fieldset>
-                <div class="row">
-                  <div class="column medium-8">
-                    <legend><h5>Edición de conferencia</h5></legend>
-                  </div>
-                </div>
-                <div class="row ">
-                  <div class="column medium-8">
-                    <label for="">Conferencia:</label>
-                    <input type="text" name="conferencia" value="'.$fila[0].'" placeholder="Nombre de la Conferencia" required>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="column medium-2">
-                    <label for="">Fecha (00/00/0000):</label>
-                    <input type="date" name="fecha" value="'.$fila['fecha'].'" placeholder="Día/Mes/Año">
-                  </div>
-                  <div class="column medium-2">
-                    <label for="">Hora:</label>
-                    <input type="time" name="hora" value="'.$fila['hora'].'" placeholder="00:00">
-                  </div>
-                  <div class="column medium-4">
-                    <label for="">Lugar:</label>
-                    <input type="text" name="lugar" value="'.$fila['lugar'].'">
-                  </div>
-                </div>
-                <div class="row ">
-                  <div class="column medium-8">
-                    <label for="">Descripción:</label>
-                    <textarea name="descripcion" rows="4" cols="1" value="'.$fila['descripcion'].'">'.$fila['descripcion'].'</textarea>
-                  </div>
-                </div>
-                <div class="row ">
-                  <div class="column medium-5">
-                    <label>Tema:
-                      <select name="tema">
-                      <option value="'.$fila['id_tema'].'">'.$fila['nombre'].'</option>
-                      ';
-                         $sql = "SELECT * FROM temas";
-                              $resultado = $conexion->consultar($sql);
-                              while ($fila = mysqli_fetch_array($resultado)) {
-                                echo "<option value='".$fila['id_tema']."'>".$fila['nombre']."</option>";
-                              }
-                      echo'</select>
-                    </label>
-                  </div>
-                </div>
 
-                <div class="row ">
-                  <input type="submit" name="" value="Actualizar" class="button success">
-                </div>
-              </fieldset>
-            </form>
-        </div>';
+            $traer_datos = new DatosConferencia();
+
+            $resultado = $traer_datos->mostrarConferencia($id);
+
+            foreach ($resultado as $valor) {
+
+            echo '<form class="" action="actualizarConferencia.php?id='.$id.'" method="post">
+                  <fieldset>
+                    <div class="row">
+                      <div class="column medium-8">
+                        <legend><h5>Edición de conferencia</h5></legend>
+                      </div>
+                    </div>
+                    <div class="row ">
+                      <div class="column medium-8">
+                        <label for="">Conferencia:</label>
+                        <input type="text" name="conferencia" value="'.$valor['nombre_conferencia'].'" placeholder="Nombre de la Conferencia" required>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="column medium-2">
+                        <label for="">Fecha (00/00/0000):</label>
+                        <input type="date" name="fecha" value="'.$valor['fecha'].'" placeholder="Día/Mes/Año">
+                      </div>
+                      <div class="column medium-2">
+                        <label for="">Hora:</label>
+                        <input type="time" name="hora" value="'.$valor['hora'].'" placeholder="00:00">
+                      </div>
+                      <div class="column medium-2">
+                        <label for="">Hora Fin:</label>
+                        <input type="time" name="hora_fin" value="'.$valor['hora_fin'].'" placeholder="00:00:00">
+                      </div>
+                    </div>
+                    <div class="row ">
+                    <div class="column medium-4">
+                      <label for="">Lugar:</label>
+                      <input type="text" name="lugar" value="'.$valor['lugar'].'">
+                    </div>
+                    <div class="column medium-4">
+                      <label>Tema:
+                        <select name="tema">
+                        <option value="'.$valor['id_tema'].'">'.$valor['nombre'].'</option>
+                        ';
+                          $desplegar_temas = new ListaTemas();
+
+                          $resultado = $desplegar_temas->desplegarTemas();
+
+                          foreach ($resultado as $value) {
+
+                                echo "<option value='".$value['id_tema']."'>".$value['nombre']."</option>";
+
+                                }
+                        echo'</select>
+                      </label>
+                    </div>
+                  </div>
+
+
+                    <div class="row ">
+                    <div class="column medium-8">
+                      <label for="">Descripción:</label>
+                      <textarea name="descripcion" rows="4" cols="1" value="'.$valor['descripcion'].'">'.$valor['descripcion'].'</textarea>
+                    </div>
+                    </div>
+                    <div class="row ">
+                      <input type="submit" name="" value="Actualizar" class="button success">
+                    </div>
+                  </fieldset>
+              </form>
+
+          </div>';
 }
  ?>

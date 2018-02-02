@@ -1,7 +1,19 @@
-<?php session_start();
-require("../inc/clases.php");
-// $conexion = new Conexion("localhost", "anprorgm_admin", "Admin_*2016", "anprorgm_sic");
-$conexion = new Conexion("localhost", "root", "", "sip2018");
+<?php
+// session_start();
+
+require('../inc/clases2.php');
+// require('../inc/devuelveUsuarios.php');
+
+// Crear una instancia para que se ejecute el constructor de la clase
+$usuarios = new DevuelveUsuarios();
+
+$array_usuarios = $usuarios->get_usuarios();
+
+$conferencias = new MostrarConferencia();
+
+$array_conferencias = $conferencias->listaConferencias();
+
+// require("../inc/datos_conexion.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,121 +27,132 @@ $conexion = new Conexion("localhost", "root", "", "sip2018");
     <script type="text/javascript" src="../js/app.js"></script>
   </head>
   <body>
-    <header>
-      <div class="row">
-        <div class="column">
-
-        </div>
-      </div>
-    </header>
+    <header></header>
     <main class="row expanded">
       <div class="column medium-2">
         <?php include("menu.php") ?>
       </div>
       <div class="column medium-10 contenido">
-        <div class="row">
-          <div class="column ">
-            <button type="button" name="button" id="agregar" class="button"><i class="fi-plus"></i> Agregar Usuario</button>
+        <div class="formularioRegistro">
+          <div class="row">
+            <div class="column ">
+              <button type="button" name="button" id="agregar" class="button">
+                <i class="fi-plus"></i> Agregar Usuario
+              </button>
+            </div>
           </div>
-        </div>
-        <div class="registro">
-          <form class="" action="altaUsuarios.php" method="post" enctype="multipart/form-data">
-            <fieldset>
-              <div class="row">
-                <div class="column">
-                  <legend><h5>Información del ponente</h5></legend>
-                </div>
-              </div>
-                <div class="row ">
-                  <div class="column medium-4">
-                    <label for="">Usuario:</label>
-                    <input type="text" name="usuario" value="" placeholder="E-mail" required>
-                  </div>
-                  <div class="column medium-4">
-                    <label for="">Password:</label>
-                    <input type="text" name="password" value="" placeholder="Password" required>
-                  </div>
-                </div>
-                <div class="row ">
-                  <div class="column medium-8">
-                    <label for="">Nombre Completo:</label>
-                    <input type="text" name="nombre" value="" placeholder="Nombres y Apellidos" required>
-                  </div>
-                </div>
-                <div class="row ">
-                  <div class="column medium-4">
-                    <label for="">Cargo:</label>
-                    <input type="text" name="cargo" value="" placeholder="Cargo" required>
-                  </div>
-                  <div class="column medium-4">
-                    <label for="">Empresa:</label>
-                    <input type="text" name="empresa" value="" placeholder="Empresa" required>
-                  </div>
-                </div>
+          <div class="registro">
+            <form class="" action="altaUsuarios.php" method="post" enctype="multipart/form-data">
+              <fieldset>
                 <div class="row">
-                  <div class="column medium-6">
-                    <label>Conferencía:
-                      <select name="conferencia">
-                        <?php $sql = "SELECT * FROM conferencias";
-                              $resultado = $conexion->consultar($sql);
-                              while ($fila = mysqli_fetch_array($resultado)) {
-                                echo "<option value='".$fila['id_conferencia']."'>".$fila['nombre']."</option>";
-                              }
-                        ?>
-                      </select>
-                    </label>
-                  </div>
-                </div>
-                <div class="row ">
-                  <div class="column medium-8">
-                    <label for="">Fotografía:</label>
-                    <input type="file" name="fotografia" value="" required>
-                  </div>
-                </div>
-                <div class="row ">
-                  <div class="column medium-8">
-                    <label for="">Biografía:</label>
-                    <textarea name="biografia" rows="4" cols="1" required></textarea>
-                  </div>
-                </div>
-                <div class="row ">
                   <div class="column">
-                    <input type="submit" name="" value="Registrar" class="success button">
+                    <legend><h5>Información del ponente</h5></legend>
                   </div>
-                </div>
-            </fieldset>
-          </form>
+                 </div>
+                 <div class="row ">
+                   <div class="column medium-3">
+                      <label for="">Usuario:</label>
+                      <input type="text" name="usuario" value="" placeholder="E-mail" required>
+                   </div>
+                   <div class="column medium-3">
+                      <label for="">Password:</label>
+                      <input type="text" name="password" value="" placeholder="Password" required>
+                   </div>
+                   <div class="column medium-2">
+                      <label for="">Nivel de prioridad:</label>
+                      <select class="" name="prioridad">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row ">
+                    <div class="column medium-8">
+                      <label for="">Nombre Completo:</label>
+                      <input type="text" name="nombre" value="" placeholder="Nombres y Apellidos" required>
+                    </div>
+                  </div>
+                  <div class="row ">
+                    <div class="column medium-4">
+                      <label for="">Cargo:</label>
+                      <input type="text" name="cargo" value="" placeholder="Cargo" required>
+                    </div>
+                    <div class="column medium-4">
+                      <label for="">Empresa:</label>
+                      <input type="text" name="empresa" value="" placeholder="Empresa" required>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="column medium-6">
+                      <label>Conferencía:
+                        <select name="conferencia">
+                          <?php
+                            foreach ($array_conferencias as $valor) {
+                            echo "<option value='".$valor['id_conferencia']."'>".$valor['nombre_conferencia']."</option>";
+                            }
+                                // $sql = "SELECT * FROM conferencias";
+                                // $resultado = $conexion->consultar($sql);
+                                // while ($fila = mysqli_fetch_array($resultado)) {
+                                //   echo "<option value='".$fila['id_conferencia']."'>".$fila['nombre']."</option>";
+                                // }
+                          ?>
+                        </select>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="row ">
+                    <div class="column medium-8">
+                      <label for="">Fotografía:</label>
+                      <input type="file" name="fotografia" value="" required>
+                    </div>
+                  </div>
+                  <div class="row ">
+                    <div class="column medium-8">
+                      <label for="">Biografía:</label>
+                      <textarea name="biografia" rows="4" cols="1" required></textarea>
+                    </div>
+                  </div>
+                  <div class="row ">
+                    <div class="column">
+                      <input type="submit" name="" value="Registrar" class="success button">
+                    </div>
+                  </div>
+              </fieldset>
+             </form>
+           </div>
         </div>
-        <div id="listaUsuarios" class="row ">
-          <div class="column medium-8">
-            <?php
-              $sql = "SELECT * FROM usuarios WHERE nivel = 2 ";
-              $resultado = $conexion->consultar($sql);
-              echo "<table>
-                      <thead>
-                        <tr>
-                          <th>Nombre</th>
-                          <th>Usuario</th>
-                        </tr>
-                      </thead>
-                      <tbody>";
-                      while ($fila = mysqli_fetch_array($resultado)) {
-                        echo "
-                        <tr>
-                          <td>" .$fila['nombre']. "</td>
-                          <td>" .$fila['usuario']. "<td>
-                          <td><a href='editarUsuario.php?id=".$fila['id_usuario']."' title='Editar'><i class='fi-pencil'></i></a></td>
-                          <td><a href='eliminar.php?id=".$fila['id_usuario']."&tabla=usuarios&columna=id_usuario' title='Eliminar' class='eliminar'><i class='fi-x'></i> </a></td>
-                          </tr>";
+
+        <div class="row">
+          <?php
+            echo "<table>
+                    <thead>
+                      <tr>
+                        <th>Usuario</th>
+                        <th>Nombre</th>
+                        <th>Cargo</th>
+                        <th>Empresa</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                      </tr>
+                    </thead>
+                    <tbody>";
+                      foreach ($array_usuarios as $elemento) {
+                        echo "<tr><td>" . $elemento['usuario'] . "</td>";
+                        echo "<td>" . $elemento['nombre'] . "</td>";
+                        echo "<td>" . $elemento['cargo'] . "</td>";
+                        echo "<td>" . $elemento['empresa'] . "</td>";
+                        echo "<td><a href='editarUsuario.php?id=".$elemento['id_usuario']."' title='Editar'><i class='fi-pencil'></i></a></td>";
+                        echo "<td><a href='eliminar.php?id=".$elemento['id_usuario']."&tabla=usuarios' title='Eliminar' class='eliminar'><i class='fi-x'></i> </a></td>";
                         }
-                      echo "
-                      </tbody>
-                    </table>";
+                        echo "</tbody>
+                      </table>";
              ?>
-          </div>
         </div>
-      </div>
+
+       </div>
     </main>
+
     <footer></footer>
   </body>
 </html>
