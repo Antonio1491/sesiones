@@ -40,16 +40,24 @@ $array_documentos = $documentos->listarDocumentos();
                      <tbody>";
                        foreach ($array_documentos as $elemento) {
                          echo "<tr><td>" . $elemento['nombre'] . "</td>";
-                         echo "<td>" . $elemento['usuario'] . "</td>";
+                         echo "<td><a href='mailto:".$elemento['usuario']."'>".$elemento['usuario']."</a></td>";
 
-                         if ($elemento['presentacion'] <> null) {
-                           echo "<td><a href=''><i class='fi-download doc_si'></td>";
+                             if ($elemento['presentacion'] <> null) {
+                               echo "<td><a href='../conferencistas/uploads/". $elemento['presentacion'] ."'><i class='fi-download doc_si'></td>";
 
-                         }
-                         else{
-                           echo "<td><i class='fi-x doc_no'></i></td>";
-                         }
-                         echo "<td>" . $elemento['video'] . "</td>";
+                             }
+                             else{
+                               echo "<td><i class='fi-x doc_no'></i></td>";
+                             }
+
+                             if ($elemento['video']  <> null) {
+                               echo "<td><a href='../conferencistas/uploads/". $elemento['video'] ."'><i class='fi-download doc_si'></td>";
+
+                             }
+                             else{
+                               echo "<td><i class='fi-x doc_no'></i></td>";
+                             }
+
                          echo "<td>" . $elemento['link'] . "</td>";
                          }
                          echo "</tbody>

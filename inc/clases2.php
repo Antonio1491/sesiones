@@ -420,7 +420,8 @@ class Conferencista extends Conexion
 
         $resultado = $this->conexion_db->query("SELECT *
                 FROM usuarios
-                LEFT JOIN documentos ON documentos.id_usuario = usuarios.id_usuario");
+                LEFT JOIN documentos ON documentos.id_usuario = usuarios.id_usuario
+                WHERE usuarios.nivel = 2");
 
         $array = $resultado->fetch_all(MYSQLI_ASSOC);
 
