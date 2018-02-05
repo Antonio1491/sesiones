@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php session_start();
+
+require('../inc/clases2.php');
+
+$id_usuario = $_SESSION['id_usuario'];
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,32 +26,56 @@
           <?php include("menu.php"); ?>
         </div>
         <div class="column medium-10">
-          <section id="form-portafolio">
-          <h4>Material de Exposición</h4>
-            <form class="" action="index.html" method="post" enctype="multipart/form-data">
 
-              <div class="row">
-                <div class="column medium-4">
-                  <label for="exampleFileUpload" class="">1.- Seleccionar Presentación</label>
-                  <input type="file" name="ptt" required>
-                </div>
-              </div>
-              <div class="row">
-                <div class="column medium-4">
-                  <label for="exampleFileUpload" >2.- Seleccionar Video</label>
-                  <input type="file" name="video" >
-                </div>
-              </div>
-              <div class="row">
-                <div class="column medium-4">
-                  <label for="">Link de video: </label>
-                  <input type="text" name="link" value="">
-                </div>
-              </div>
+          <?php
 
-              <input type="submit" name="" value="Subir Archivos" class="button ">
-            </form>
-          </section>
+            $comprobar_documentos = new Conferencista();
+
+            $respuesta = $comprobar_documentos->comprobarDocumentos($id_usuario);
+
+            if ($respuesta) {
+
+              $mensaje = "<img href='../img/check-documentos.png' class='check_doc'>";
+
+              echo $mensaje;
+            }
+            else {
+
+              echo'
+              <section id="form-portafolio">
+              <h4>Material de Exposición</h4>
+                <form class="" action="cargarDocumentos.php" method="post" enctype="multipart/form-data">
+
+                  <div class="row">
+                    <div class="column medium-4">
+                      <label for="exampleFileUpload" class="">1.- Seleccionar Presentación</label>
+                      <input type="file" name="presentacion" required>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="column medium-4">
+                      <label for="exampleFileUpload" >2.- Seleccionar Video</label>
+                      <input type="file" name="video" >
+                    </div>
+
+                  </div>
+                  <div class="row">
+                    <div class="column medium-4">
+                      <label for="">Link de video: </label>
+                      <input type="text" name="link" value="">
+                    </div>
+                  </div>
+
+                  <button type="submit" name="" value="Subir Archivos" class="button ">Cargar Archivos <i class="fi-upload"></i></button>
+                </form>
+              </section>';
+
+            }
+
+           ?>
+
+
+
 
         </div>
       </div>

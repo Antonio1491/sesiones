@@ -320,7 +320,7 @@ class Login extends Conexion{
 }
 
 
-// =============== conferencistas
+// =============== conferencistas ==============
 
 class Conferencista extends Conexion
 {
@@ -373,7 +373,51 @@ class Conferencista extends Conexion
 
         return $resultado;
     }
+
+      public function cargarDocumentos($nom_ppt, $tipo_ppt, $tmp_ptt, $nom_video, $tipo_video, $tmp_video, $link, $id){
+
+        // Ruta de la carpeta destino para los archivos cargados
+        $carpeta_destino = $_SERVER['DOCUMENT_ROOT'].'/sesiones/conferencistas/uploads/';
+
+        if (($tipo_ppt == "application/vnd.ms-powerpoint" ||
+            $tipo_ppt == "application/vnd.openxmlformats-officedocument.presentationml.presentation" ||
+            $tipo_ppt == "application/vnd.openxmlformats-officedocument.presentationml.slideshow" ||
+            $tipo_ppt == "application/vnd.openxmlformats-officedocument.presentationml.template" ||
+            $tipo_ppt == "application/vnd.openxmlformats-officedocument.presentationml.slide") &&
+            ($tipo_video == "video/mp4" || $tipo_video == "video/x-ms-wmv")) {
+
+                //Mover el archivo de la carpeta temporal a la carpeta $destino
+                move_uploaded_file($tmp_ptt, $carpeta_destino.$nom_ppt);
+
+                move_uploaded_file($tmp_video, $carpeta_destino.$nom_video);
+
+                $sql = "INSERT INTO documentos VALUES (null, '$nom_ppt', '$nom_video', '$link', '$id')";
+
+                $resultado = $this->conexion_db->query($sql);
+
+                return  $resultado;
+
+        }
+          else{
+
+            $resultado = "Error: Alguno de los formatos seleccionados no es admitido.";
+
+            return $resultado;
+
+          }
+
+      }
+
+      public function comprobarDocumentos( $id_usuario){
+
+        $resultado = $this->conexion_db->query("SELECT * FROM documentos WHERE id_usuario = $id_usuario");
+
+        return $resultado;
+
+      }
 }
+
+
 
 
 
