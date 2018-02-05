@@ -43,3 +43,12 @@ td{
   color: #00d084;
   font-size: 1.4em;
 }
+
+
+.doc_no{
+  font-size: 12px;
+  color: #930c19;
+}
+.doc_si{
+  font-size: 16px;
+}

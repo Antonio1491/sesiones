@@ -395,14 +395,12 @@ class Conferencista extends Conexion
 
                 $resultado = $this->conexion_db->query($sql);
 
-                return  $resultado;
+                return  true;
 
         }
           else{
 
-            $resultado = "Error: Alguno de los formatos seleccionados no es admitido.";
-
-            return $resultado;
+            return false;
 
           }
 
@@ -412,7 +410,21 @@ class Conferencista extends Conexion
 
         $resultado = $this->conexion_db->query("SELECT * FROM documentos WHERE id_usuario = $id_usuario");
 
-        return $resultado;
+        $array = $resultado->fetch_all(MYSQLI_NUM);
+
+        return $array;
+
+      }
+
+      public function listarDocumentos(){
+
+        $resultado = $this->conexion_db->query("SELECT *
+                FROM usuarios
+                LEFT JOIN documentos ON documentos.id_usuario = usuarios.id_usuario");
+
+        $array = $resultado->fetch_all(MYSQLI_ASSOC);
+
+        return $array;
 
       }
 }

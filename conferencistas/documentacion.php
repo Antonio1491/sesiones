@@ -33,9 +33,10 @@ $id_usuario = $_SESSION['id_usuario'];
 
             $respuesta = $comprobar_documentos->comprobarDocumentos($id_usuario);
 
-            if ($respuesta) {
+            if ($respuesta == true) {
 
-              $mensaje = "<img href='../img/check-documentos.png' class='check_doc'>";
+              $mensaje = "<div class='row carga-doc'><div class='column medium-12'><h4 >¡Archivos cargados!</h4></div></div>
+                          <div class='row'><img src='../img/check-documentos.png' class='check_doc'></div>";
 
               echo $mensaje;
             }

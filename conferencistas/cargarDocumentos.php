@@ -36,7 +36,7 @@ if ($resultado) {
 else{
 
   echo"<script language='JavaScript'>
-      alert('Error: No pudimos realizar el registro');
+      alert('Error: Alguno de los formatos no es permitido');
       </script>";
   echo "<script>window.history.go(-1);</script>";
 
