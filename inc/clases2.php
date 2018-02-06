@@ -11,7 +11,7 @@ class DevuelveUsuarios extends Conexion{   //utilizar variables y métodos dentr
   }
 
   public function get_usuarios(){
-      $resultado = $this->conexion_db->query('SELECT * FROM usuarios');
+      $resultado = $this->conexion_db->query('SELECT * FROM usuarios ORDER BY id_usuario DESC');
 
       $usuarios = $resultado->fetch_all(MYSQLI_ASSOC);
 
@@ -28,12 +28,13 @@ class ActualizarUsuario extends Conexion{
     parent::__construct();
 
   }
-  public function actualizar($nom, $cargo, $em, $bio, $conf, $id){
+  public function actualizar($nom, $cargo, $em, $bio, $usuario, $conf, $id){
 
       $sql = "UPDATE usuarios SET nombre = '$nom',
               cargo = '$cargo',
               empresa = '$em',
               biografia = '$bio',
+              usuario = '$usuario',
               id_conferencia = '$conf'
               WHERE id_usuario = '$id' ";
 
@@ -205,12 +206,12 @@ class DatosUsuario extends Conexion{
 
     $folio = $id;
 
-    $resultado = $this->conexion_db->query("SELECT a.nombre, a.cargo, a.empresa, a.biografia, a.id_conferencia, b.nombre_conferencia
+    $resultado = $this->conexion_db->query("SELECT a.nombre, a.cargo, a.empresa, a.biografia, a.usuario, a.id_conferencia, b.nombre_conferencia
     FROM usuarios  AS a
     RIGHT JOIN conferencias AS b ON b.id_conferencia = a.id_conferencia
     WHERE id_usuario = '$folio' ");
 
-    $datos = $resultado->fetch_all(MYSQL_ASSOC);
+    $datos = $resultado->fetch_all(MYSQLI_ASSOC);
 
     return $datos;
 
@@ -283,12 +284,12 @@ class Login extends Conexion{
 
     if ((isset ($us) && $us != '') && (isset ($pas) && $pas != ''))  {
 
-        echo "tenemos datos";
+        // echo "tenemos datos" . $us . " - ". $pas;
         $sql = $this->conexion_db->query("SELECT * FROM usuarios
                                     WHERE usuario = '$us'
                                     AND password = '$pas' ");
 
-        $respuesta = $sql->fetch_all(MYSQL_ASSOC);
+        $respuesta = $sql->fetch_all(MYSQLI_ASSOC);
 
         if ($respuesta) {
               foreach ($respuesta as $valor){

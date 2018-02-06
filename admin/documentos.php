@@ -1,5 +1,16 @@
 <?php  session_start();
 
+if ( isset ($_SESSION['id_usuario'])) {
+
+}
+else {
+  header("Location: ../index.html");
+  exit();
+}
+// $id_usuario = $_SESSION['id_usuario'];
+
+// echo $id_usuario;
+
 require('../inc/clases2.php');
 
 $documentos = new Conferencista();

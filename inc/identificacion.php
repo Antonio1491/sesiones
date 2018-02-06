@@ -1,7 +1,6 @@
 <?php
-// require("datos_conexion.php");
 require('clases2.php');
-//
+
 // $email = $mysqli->real_escape_string($_POST['email']);
 // $password = $mysqli->real_escape_string($_POST['password']);
 $email = $_POST['email'];

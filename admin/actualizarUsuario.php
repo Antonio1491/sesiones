@@ -11,6 +11,7 @@
 require("../inc/clases2.php");
 $id = $_GET['id'];
 $nombre = $_POST['nombre'];
+$usuario = $_POST['usuario'];
 $cargo = $_POST['cargo'];
 $empresa = $_POST['empresa'];
 $biografia = $_POST['biografia'];
@@ -18,7 +19,7 @@ $conferencia = $_POST['conferencia'];
 
 $actualizar = new ActualizarUsuario();
 
-$resultado = $actualizar->actualizar($nombre, $cargo, $empresa, $biografia, $conferencia, $id);
+$resultado = $actualizar->actualizar($nombre, $cargo, $empresa, $biografia, $usuario, $conferencia, $id);
 
 if ($resultado) {
 

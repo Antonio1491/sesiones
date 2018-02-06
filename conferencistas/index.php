@@ -1,6 +1,6 @@
 <?php session_start();
 
-$_SESSION['id_usuario'] = $_GET['id'];
+ $_SESSION['id_usuario'] = $_GET['id'];
 
 // echo $_SESSION['id_usuario'];
 
@@ -32,10 +32,10 @@ $_SESSION['id_usuario'] = $_GET['id'];
             <p><strong>Felicidades por ser parte del 1er Congreso Internacional de Parques Urbanos en Mérida, Yucatán 2018.</strong></p>
             <p>Esta es la plataforma digital para ponentes en la cual podrás:</p>
             <ul>
-              <li>Revisar y modificar toda tu información personal y profesional en <a href="#" class="subrayado">Mi perfil</a>.</li>
-              <li>Firmar los <a href="#" class="subrayado">acuerdos, términos y condiciones</a> de tu participación.</li>
-              <li><a href="#" class="subrayado">Subir tu material</a> audiovisual como: presentación de PowerPoint de la sesión, folletos, vídeos e información adicional.</li>
-              <li>Consultar <a href="#" class="subrayado">información de tu sesión</a>, como: horario y salón en donde tendrá lugar la sesión.  </li>
+              <li>Revisar y modificar toda tu información personal y profesional en <a href="perfil.php" class="subrayado">Mi perfil</a>.</li>
+              <li>Firmar los <a href="acuerdos.php" class="subrayado">acuerdos, términos y condiciones</a> de tu participación.</li>
+              <li><a href="documentacion.php" class="subrayado">Subir tu material</a> audiovisual como: presentación de PowerPoint, vídeos e información adicional.</li>
+              <li>Consultar <a href="conferencia.php" class="subrayado">información de tu sesión</a>, como: horario y salón en donde tendrá lugar la sesión.  </li>
             </ul>
           </div>
         </section>

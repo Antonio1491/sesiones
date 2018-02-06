@@ -1,5 +1,6 @@
 <nav>
   <ul class="vertical menu">
+    <!-- <li><a href="index.php"><i class="fi-home"></i> Inicio</a></li> -->
     <li><a href="perfil.php"><i class="fi-torso"></i> Mi Perfil</a></li>
     <li><a href="acuerdos.php"><i class="fi-clipboard-pencil"></i> Acuerdos</a></li>
     <li><a href="documentacion.php"><i class="fi-folder"></i> Documentos</a></li>

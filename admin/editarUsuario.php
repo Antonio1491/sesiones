@@ -46,7 +46,14 @@ $array_datos_usuario = $usuario->mostrarDatosUsuario($id);
                         <label for="">Nombre Completo:</label>
                         <input type="text" name="nombre" value="'.$valor['nombre'].'" placeholder="Nombres y Apellidos" >
                       </div>
-                    </div>';
+                    </div>
+                    <div class="row ">
+                      <div class="column medium-8">
+                        <label for="">Nombre Completo:</label>
+                        <input type="text" name="usuario" value="'.$valor['usuario'].'" placeholder="Nombres y Apellidos" >
+                      </div>
+                    </div>
+                    ';
 
         $tabla = $tabla.'<div class="row ">
                           <div class="column medium-4">

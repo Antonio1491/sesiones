@@ -1,4 +1,5 @@
 <?php session_start();
+
 require("../inc/clases2.php");
 
  ?>
@@ -59,15 +60,15 @@ require("../inc/clases2.php");
                   <label for="">Tipo:
                     <select name="tipo">
                       <?php
-                           $lista_tipos = new MostrarConferencia();
-
-                          $array = $lista_tipos->tipoConferencia();
-
-                          foreach ($array as $tipo) {
-
-                            echo "<option value='".$tipo['id_tipo']."'>".$tipo['tipo']."</option>";
-
-                          }
+                          //  $lista_tipos = new MostrarConferencia();
+                          //
+                          // $array = $lista_tipos->tipoConferencia();
+                          //
+                          // foreach ($array as $tipo) {
+                          //
+                          //   echo "<option value='".$tipo['id_tipo']."'>".$tipo['tipo']."</option>";
+                          //
+                          // }
 
                       ?>
                     </select>
