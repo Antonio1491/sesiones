@@ -1,6 +1,6 @@
 <?php session_start();
 
-require('../inc/clases2.php');
+require('../../inc/clases2.php');
 
 $id_usuario = $_SESSION['id_usuario'];
 
@@ -12,11 +12,11 @@ $id_usuario = $_SESSION['id_usuario'];
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Documentación</title>
-    <link rel="stylesheet" href="../css/foundation.css">
-    <link rel="stylesheet" href="css/app-conferencistas.css">
-    <link rel="stylesheet" href="../font/foundation-icons.css">
+    <link rel="stylesheet" href="../../css/foundation.css">
+    <link rel="stylesheet" href="../css/app-conferencistas.css">
+    <link rel="stylesheet" href="../../font/foundation-icons.css">
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="../js/app.js"></script>
+    <script type="text/javascript" src="../../js/app.js"></script>
   </head>
   <body>
     <header><h3 class="text-center">1er Congreso Internacional de Parques Urbanos 2018</h3></header>
@@ -28,21 +28,21 @@ $id_usuario = $_SESSION['id_usuario'];
         <div class="column medium-10">
           <div class="row">
             <div class="column medium-12">
-              <h5>Documentos</h5>
-              <p>En este apartado podrá cargar el material audiovisual que utilizará en su conferencia magistral o sesión educativa.</p>
-              <p>Es necesario que cargue todos los archivos que utilizará en su presentación antes del VIERNES 30 DE MARZO DEL 2018,
-                ya que su presentación será precargada en la computadora de su salón asignado. No es necesario que lleve una unidad
-                USB el día de la presentación.</p>
-                <strong>Formatos y recomendaciones:</strong>
+              <h5>DOCUMENTS </h5>
+              <p>In this section you can upload the audiovisual material that you will use in your keynote or educational session.</p>
+              <p>It is necessary that you upload all the files you will use in your presentation before or not later than FRIDAY,
+                MARCH 30, 2018, since your presentation will be preloaded in the computer of your assigned room. It
+                is not necessary to bring a FLASH memory on the day of presentation.</p>
+                <strong>Formats and recommendations:</strong>
                 <ul>
-                  <li>Únicamente se aceptarán presentaciones de Power Point (.pptx) </li>
-                  <li>Visualización 16:9</li>
-                  <li>Tamaño de letra recomendada 18 o más grande</li>
-                  <strong>Formatos y recomendaciones para video:</strong>
-                  <li>Si en su presentación utilizará videos, es necesario lo adjunte en esta plataforma, estos también serán
-                    precargados en la computadora de su salón asignado.</li>
-                    <li>Formatos requeridos: .MP4 o .MOV</li>
-                    <li>IMPORTANTE: Si su video se encuentra en YouTube, por favor envíe el link.</li>
+                  <li>Only Power Point presentations (.pptx) will be accepted</li>
+                  <li>Display 16: 9</li>
+                  <li>Recommended font size 18 or larger</li>
+                  <strong>Formats and recommendations for video:</strong>
+                  <li>If you will use videos in your presentation, it is necessary to attach them in this platform,
+                    these will also be preloaded in the computer of your assigned room.</li>
+                    <li>Formats required: .MP4 or .MOV</li>
+                    <li>IMPORTANT: If your video is on YouTube, please send the link.</li>
                 </ul>
             </div>
 
@@ -83,12 +83,12 @@ $id_usuario = $_SESSION['id_usuario'];
                   </div>
                   <div class="row">
                     <div class="column medium-4">
-                      <label for="">Link de video: </label>
+                      <label for="">Link video: </label>
                       <input type="text" name="link" value="">
                     </div>
                   </div>
 
-                  <button type="submit" name="" value="Subir Archivos" class="button ">Cargar Archivos <i class="fi-upload"></i></button>
+                  <button type="submit" name="" value="Subir Archivos" class="button ">Upload files <i class="fi-upload"></i></button>
                 </form>
               </section>';
 

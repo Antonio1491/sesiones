@@ -38,16 +38,12 @@ nav{
 }
 
 /*========================  Formulario de portafolio  ===============*/
-#form-portafolio{
-  margin: 5em 10em;
+#form-portafolio button{
+  margin: 0 20%;
 }
-#form-portafolio h4{
-  color: rgb(63, 85, 85);
-
+#traducir{
+  margin: 0 auto; 
 }
-
-
-
 
 #acuerdos{
   margin-top: 2em;
