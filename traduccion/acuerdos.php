@@ -1,6 +1,6 @@
 <?php session_start();
 
-   require("../../inc/clases2.php");
+   require("../inc/clases2.php");
 
 
 ?>
@@ -11,12 +11,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bienvenidos Conferencistas</title>
-  <link rel="stylesheet" href="../../css/foundation.css">
-<link rel="stylesheet" href="../css/app-conferencistas.css">
-  <link rel="stylesheet" href="../../font/foundation-icons.css">
+  <link rel="stylesheet" href="../css/foundation.css">
+  <link rel="stylesheet" href="../conferencistas/css/app-conferencistas.css">
+  <link rel="stylesheet" href="../font/foundation-icons.css">
   <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-  <script type="text/javascript" src="../../js/app.js"></script>
+  <script type="text/javascript" src="../js/app.js"></script>
 </head>
 <body>
   <header><h3 class="text-center">1st International Congress of Urban Parks 2018</h3></header>
@@ -141,7 +141,7 @@
 
 
           </div>
-        </section>
+        </section><br>
       </div>
     </div>
   </main>

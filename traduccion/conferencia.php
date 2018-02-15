@@ -9,11 +9,12 @@ require('../inc/clases2.php');
     <meta charset="utf-8">
     <title> Conferencia </title>
     <link rel="stylesheet" href="../css/foundation.css">
-    <link rel="stylesheet" href="css/app-conferencistas.css">
+    <link rel="stylesheet" href="../conferencistas/css/app-conferencistas.css">
     <link rel="stylesheet" href="../font/foundation-icons.css">
-    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/app.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+
   </head>
   <body>
     <header><h3 class="text-center">1er Congreso Internacional de Parques Urbanos 2018</h3></header>
@@ -35,25 +36,25 @@ require('../inc/clases2.php');
                 echo "<div class='row'>
                         <div class='column medium-6'>
                           <div class='row'>
-                            <span>Nombre de la Conferencia: </span>".$datos['nombre_conferencia']."
+                            <span>Name of the Conference: </span>".$datos['nombre_conferencia_ing']."
                           </div>
                           <div class='row'>
-                            <span>Fecha de participación: </span>".$datos['fecha']."
+                            <span>Date of participation: </span>".$datos['fecha']."
                           </div>
                           <div class='row'>
-                            <span>Hora inicio: </span>".$datos['hora']."
+                            <span>Start Time: </span>".$datos['hora']."
                           </div>
                           <div class='row'>
-                            <span>Hora fin: </span>".$datos['hora_fin']."
+                            <span>End time: </span>".$datos['hora_fin']."
                           </div>
                           <div class='row'>
-                            <span>Salón: </span>".$datos['lugar']."
+                            <span>Living room: </span>".$datos['lugar']."
                           </div>
                           <div class='row'>
-                            <span>Descripción: </span>".$datos['descripcion']."
+                            <span>Description: </span>".$datos['descripcion_ing']."
                           </div>
                           <div class='row'>
-                            <span>Tema al que pertenece: </span>".$datos['nombre']."
+                            <span>Subject to which belongs: </span>".$datos['nombre_ing']."
                           </div>
                         </div>
                       ";

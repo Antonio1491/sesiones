@@ -363,7 +363,7 @@ class Conferencista extends Conexion
 
     public function datosConferencia($id){
 
-      $sql = $this->conexion_db->query("SELECT usuarios.id_usuario, conferencias.nombre_conferencia, conferencias.fecha, conferencias.hora, conferencias.hora_fin, conferencias.lugar, conferencias.descripcion , temas.nombre
+      $sql = $this->conexion_db->query("SELECT *
                                     FROM usuarios
                                     LEFT JOIN conferencias
                                     ON conferencias.id_conferencia = usuarios.id_conferencia
