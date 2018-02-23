@@ -1,25 +1,22 @@
 <?php session_start();
-
-?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Alta Usuarios</title>
-  </head>
-<?php
-require("../inc/clases2.php");
 $id = $_GET['id'];
+require("../inc/clases2.php");
+
 $nombre = $_POST['nombre'];
 $usuario = $_POST['usuario'];
 $cargo = $_POST['cargo'];
+$cargo_ing = $_POST['cargo_ing'];
 $empresa = $_POST['empresa'];
-$biografia = $_POST['biografia'];
+$empresa_ing = $_POST['empresa_ing'];
+$biografia = addslashes($_POST['biografia']);
+$biografia_ing = addslashes($_POST['biografia_ing']);
 $conferencia = $_POST['conferencia'];
 
 $actualizar = new ActualizarUsuario();
-
-$resultado = $actualizar->actualizar($nombre, $cargo, $empresa, $biografia, $usuario, $conferencia, $id);
+// echo $nombre, $cargo, $cargo_ing, $empresa, $empresa_ing,
+                                // $biografia, $biografia_ing, $usuario, $conferencia, $id;
+$resultado = $actualizar->actualizar($nombre, $cargo, $cargo_ing, $empresa, $empresa_ing,
+                                $biografia, $biografia_ing, $usuario, $conferencia, $id);
 
 if ($resultado) {
 
@@ -35,4 +32,3 @@ if ($resultado) {
     }
 
 ?>
-</html>

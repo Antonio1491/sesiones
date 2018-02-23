@@ -11,8 +11,11 @@ $usuario = $_POST['usuario'];
 $password = $_POST['password'];
 $nombre = $_POST['nombre'];
 $cargo = $_POST['cargo'];
+$cargo_ing = $_POST['cargo_ing'];
 $empresa = $_POST['empresa'];
-$biografia = nl2br($_POST['biografia']);
+$empresa_ing = $_POST['empresa_ing'];
+$biografia = addslashes($_POST['biografia']);
+$biografia_ing = addslashes($_POST['biografia_ing']);
 $conferencia = $_POST['conferencia'];
 $prioridad = $_POST['prioridad'];
 
@@ -25,8 +28,9 @@ copy($extraerNombre, $destino);
 
 $insertar = new RegistrarUsuario();
 
-$resultado = $insertar->registroDeUsuario($nombre, $cargo, $empresa, $biografia, $fotografia,
-              $usuario, $password, $nivel, $prioridad, $conferencia);
+$resultado = $insertar->registroDeUsuario($nombre, $cargo, $cargo_ing, $empresa,
+                                          $empresa_ing, $biografia, $biografia_ing, $fotografia,
+                                          $usuario, $password, $nivel, $prioridad, $conferencia);
 
     if ($resultado) {
 

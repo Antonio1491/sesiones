@@ -83,6 +83,17 @@ $array_conferencias = $conferencias->listaConferencias();
                       <input type="text" name="empresa" value="" placeholder="Empresa" required>
                     </div>
                   </div>
+                  <div class="row ">
+                    <div class="column medium-4">
+                      <label for="">Position:</label>
+                      <input type="text" name="cargo_ing" value="" placeholder="Cargo" required>
+                    </div>
+                    <div class="column medium-4">
+                      <label for="">Company:</label>
+                      <input type="text" name="empresa_ing" value="" placeholder="Empresa" required>
+                    </div>
+                  </div>
+
                   <div class="row">
                     <div class="column medium-6">
                       <label>Conferencía:
@@ -91,11 +102,6 @@ $array_conferencias = $conferencias->listaConferencias();
                             foreach ($array_conferencias as $valor) {
                             echo "<option value='".$valor['id_conferencia']."'>".$valor['nombre_conferencia']."</option>";
                             }
-                                // $sql = "SELECT * FROM conferencias";
-                                // $resultado = $conexion->consultar($sql);
-                                // while ($fila = mysqli_fetch_array($resultado)) {
-                                //   echo "<option value='".$fila['id_conferencia']."'>".$fila['nombre']."</option>";
-                                // }
                           ?>
                         </select>
                       </label>
@@ -111,6 +117,12 @@ $array_conferencias = $conferencias->listaConferencias();
                     <div class="column medium-8">
                       <label for="">Biografía:</label>
                       <textarea name="biografia" rows="4" cols="1" required></textarea>
+                    </div>
+                  </div>
+                  <div class="row ">
+                    <div class="column medium-8">
+                      <label for="">Biography:</label>
+                      <textarea name="biografia_ing" rows="4" cols="1" required></textarea>
                     </div>
                   </div>
                   <div class="row ">

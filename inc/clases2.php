@@ -28,19 +28,23 @@ class ActualizarUsuario extends Conexion{
     parent::__construct();
 
   }
-  public function actualizar($nom, $cargo, $em, $bio, $usuario, $conf, $id){
+  public function actualizar($nombre, $cargo, $cargo_ing, $empresa, $empresa_ing,
+                                  $biografia, $biografia_ing, $usuario, $conferencia, $id){
 
-      $sql = "UPDATE usuarios SET nombre = '$nom',
-              cargo = '$cargo',
-              empresa = '$em',
-              biografia = '$bio',
-              usuario = '$usuario',
-              id_conferencia = '$conf'
-              WHERE id_usuario = '$id' ";
+      $sql = "UPDATE usuarios SET nombre = '$nombre',
+            cargo = '$cargo',
+            cargo_ing = '$cargo_ing',
+            empresa = '$empresa',
+            empresa_ing = '$empresa_ing',
+            biografia = '$biografia',
+            biografia_ing = '$biografia_ing',
+            usuario = '$usuario',
+            id_conferencia = '$conferencia'
+            WHERE id_usuario = '$id' ";
 
-      $resultado = $this->conexion_db->query($sql);
+            $resultado = $this->conexion_db->query($sql);
 
-      return $resultado;
+            return $resultado;
 
   }
 }
@@ -53,14 +57,16 @@ class ActualizarConferencia extends Conexion{
     parent::__construct();
 
   }
-  public function actualizar($conf, $f, $hr, $hrf, $lugar, $desc, $tema, $id){
+  public function actualizar($conf, $conf_ing, $f, $hr, $hrf, $lugar, $desc, $desc_ing, $tema, $id){
 
       $sql = "UPDATE conferencias SET nombre_conferencia = '$conf',
+              nombre_conferencia_ing = '$conf_ing',
               fecha = '$f',
               hora = '$hr',
               hora_fin = '$hrf',
               lugar = '$lugar',
               descripcion = '$desc',
+              descripcion_ing = '$desc_ing',
               id_tema = '$tema'
               WHERE id_conferencia = '$id' ";
 
@@ -153,12 +159,12 @@ class RegistrarUsuario extends Conexion{
     parent::__construct();
 
   }
-  public function registroDeUsuario($nombre, $cargo, $empresa, $biografia, $fotografia, $usuario,
+  public function registroDeUsuario($nombre, $cargo, $cargo_ing, $empresa, $empresa_ing, $biografia, $biografia_ing, $fotografia, $usuario,
                                     $password, $nivel, $prioridad, $conferencia){
 
       $resultado = $this->conexion_db->query("INSERT INTO usuarios
-                                              VALUES ( null, '$nombre', '$cargo',
-                                                '$empresa', '$biografia',
+                                              VALUES ( null, '$nombre', '$cargo','$cargo_ing',
+                                                '$empresa', '$empresa_ing', '$biografia', '$biografia_ing',
                                                 '$fotografia', '$usuario',
                                                 '$password', '$nivel', '$prioridad',
                                                 0,'$conferencia')");
@@ -177,14 +183,14 @@ class RegistroConferencia extends Conexion{
 
   }
 
-  public function registrar($conf, $f, $hr, $hrf, $lugar, $desc, $tema){
+  public function registrar($conf, $conf_ing, $f, $hr, $hrf, $lugar, $desc, $desc_ing, $tema){
 
     echo $conf, $f, $hr, $hrf, $lugar, $desc, $tema;
 
     $sql = $this->conexion_db->query("INSERT INTO conferencias
-                                      VALUES (null, '$conf', '$f',
+                                      VALUES (null, '$conf', '$conf_ing', '$f',
                                               '$hr', '$hrf', '$lugar',
-                                              '$desc', '$tema')");
+                                              '$desc', '$desc_ing', '$tema')");
 
     return $sql;
 
@@ -206,7 +212,7 @@ class DatosUsuario extends Conexion{
 
     $folio = $id;
 
-    $resultado = $this->conexion_db->query("SELECT a.nombre, a.cargo, a.empresa, a.biografia, a.usuario, a.id_conferencia, b.nombre_conferencia
+    $resultado = $this->conexion_db->query("SELECT a.nombre, a.cargo, a.cargo_ing, a.empresa, a.empresa_ing, a.biografia, a.biografia_ing, a.usuario, a.id_conferencia, b.nombre_conferencia
     FROM usuarios  AS a
     RIGHT JOIN conferencias AS b ON b.id_conferencia = a.id_conferencia
     WHERE id_usuario = '$folio' ");
@@ -230,8 +236,8 @@ class DatosConferencia extends Conexion{
 
   public function mostrarConferencia($id){
 
-    $resultado = $this->conexion_db->query("SELECT  a.nombre_conferencia, a.fecha, a.hora, a.hora_fin,  a.lugar,
-                                            a.descripcion, b.id_tema, b.nombre
+    $resultado = $this->conexion_db->query("SELECT  a.nombre_conferencia, a.nombre_conferencia_ing, a.fecha, a.hora, a.hora_fin,  a.lugar,
+                                            a.descripcion, a.descripcion_ing, b.id_tema, b.nombre
                                             FROM conferencias AS a
                                             LEFT JOIN temas as b ON b.id_tema = a.id_tema
                                             WHERE id_conferencia = '$id' ");

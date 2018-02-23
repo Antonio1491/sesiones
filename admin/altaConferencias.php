@@ -4,6 +4,8 @@ require('../inc/clases2.php');
 
 $conferencia = $_POST['conferencia'];
 
+$conferencia_ing = $_POST['conferencia_ing'];
+
 $fecha = $_POST['fecha'];
 
 $hora = $_POST['hora'];
@@ -16,9 +18,12 @@ $tema = $_POST['tema'];
 
 $descripcion = $_POST['descripcion'];
 
+$descripcion_ing = $_POST['descripcion_ing'];
+
 $registro = new RegistroConferencia();
 
-$resultado = $registro->registrar($conferencia, $fecha, $hora, $hora_fin, $lugar, $descripcion, $tema);
+$resultado = $registro->registrar($conferencia, $conferencia_ing, $fecha, $hora, $hora_fin,
+                                  $lugar, $descripcion, $descripcion_ing, $tema);
 
 if ($resultado) {
 

@@ -16,6 +16,18 @@
   overflow: hidden;
 }
 
+/* ==== Mensaje ====*/
+
+#mensaje-login{
+  /* display: none; */
+  font-size: 9px;
+  margin-top: -8px;
+  margin-bottom: 6px;
+  padding-left: 5px;
+  color: #4b4b4b;
+}
+
+
 .login-box .or {
   position: absolute;
   top: 50%;

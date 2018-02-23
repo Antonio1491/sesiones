@@ -42,6 +42,12 @@ require("../inc/clases2.php");
                         <input type="text" name="conferencia" value="'.$valor['nombre_conferencia'].'" placeholder="Nombre de la Conferencia" required>
                       </div>
                     </div>
+                    <div class="row ">
+                      <div class="column medium-8">
+                        <label for="">Conferencia:</label>
+                        <input type="text" name="conferencia_ing" value="'.$valor['nombre_conferencia_ing'].'" placeholder="Nombre de la Conferencia" required>
+                      </div>
+                    </div>
                     <div class="row">
                       <div class="column medium-2">
                         <label for="">Fecha (00/00/0000):</label>
@@ -87,6 +93,14 @@ require("../inc/clases2.php");
                       <textarea name="descripcion" rows="4" cols="1" value="'.$valor['descripcion'].'">'.$valor['descripcion'].'</textarea>
                     </div>
                     </div>
+
+                    <div class="row ">
+                    <div class="column medium-8">
+                      <label for="">Descripción:</label>
+                      <textarea name="descripcion_ing" rows="4" cols="1" value="'.$valor['descripcion_ing'].'">'.$valor['descripcion_ing'].'</textarea>
+                    </div>
+                    </div>
+
                     <div class="row ">
                       <input type="submit" name="" value="Actualizar" class="button success">
                     </div>

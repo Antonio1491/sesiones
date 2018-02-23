@@ -43,6 +43,12 @@ require("../inc/clases2.php");
                   <input type="text" name="conferencia" value="" placeholder="Nombre de la Conferencia" required>
                 </div>
               </div>
+              <div class="row ">
+                <div class="column medium-8">
+                  <label for="">Conference:</label>
+                  <input type="text" name="conferencia_ing" value="" placeholder="Nombre de la Conferencia" required>
+                </div>
+              </div>
               <div class="row">
                 <div class="column medium-2">
                   <label for="">Fecha (00/00/0000):</label>
@@ -56,24 +62,6 @@ require("../inc/clases2.php");
                   <label for="">Hora Fin:</label>
                   <input type="time" name="hora_fin" value="" placeholder="00:00:00">
                 </div>
-                <!-- <div class="column medium-2">
-                  <label for="">Tipo:
-                    <select name="tipo">
-                      <?php
-                          //  $lista_tipos = new MostrarConferencia();
-                          //
-                          // $array = $lista_tipos->tipoConferencia();
-                          //
-                          // foreach ($array as $tipo) {
-                          //
-                          //   echo "<option value='".$tipo['id_tipo']."'>".$tipo['tipo']."</option>";
-                          //
-                          // }
-
-                      ?>
-                    </select>
-                  </label>
-                </div> -->
               </div>
               <div class="row ">
                 <div class="column medium-4">
@@ -107,6 +95,12 @@ require("../inc/clases2.php");
                 <div class="column medium-8">
                   <label for="">Descripción:</label>
                   <textarea name="descripcion" rows="4" cols="80"></textarea>
+                </div>
+              </div>
+              <div class="row ">
+                <div class="column medium-8">
+                  <label for="">Description:</label>
+                  <textarea name="descripcion_ing" rows="4" cols="80"></textarea>
                 </div>
               </div>
               <div class="row ">

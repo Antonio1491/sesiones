@@ -43,13 +43,13 @@ $array_datos_usuario = $usuario->mostrarDatosUsuario($id);
 
         $tabla = $tabla.'<div class="row ">
                       <div class="column medium-8">
-                        <label for="">Nombre Completo:</label>
+                        <label for="">Nombre:</label>
                         <input type="text" name="nombre" value="'.$valor['nombre'].'" placeholder="Nombres y Apellidos" >
                       </div>
                     </div>
                     <div class="row ">
                       <div class="column medium-8">
-                        <label for="">Nombre Completo:</label>
+                        <label for="">Usuario (e-mail):</label>
                         <input type="text" name="usuario" value="'.$valor['usuario'].'" placeholder="Nombres y Apellidos" >
                       </div>
                     </div>
@@ -65,12 +65,28 @@ $array_datos_usuario = $usuario->mostrarDatosUsuario($id);
                             <input type="text" name="empresa" value="'.$valor['empresa'].'" placeholder="Empresa" >
                           </div>
                         </div>';
+      $tabla = $tabla.'<div class="row ">
+                        <div class="column medium-4">
+                          <label for="">Position:</label>
+                          <input type="text" name="cargo_ing" value="'.$valor['cargo_ing'].'" placeholder="Cargo">
+                        </div>
+                        <div class="column medium-4">
+                          <label for="">Company:</label>
+                          <input type="text" name="empresa_ing" value="'.$valor['empresa_ing'].'" placeholder="Empresa" >
+                        </div>
+                      </div>';
         $tabla = $tabla.'<div class="row ">
                           <div class="column medium-8">
                             <label for="">Biografía:</label>
-                            <textarea name="biografia" rows="4" cols="1" value="'.$valor['biografia'].'">'.$valor['biografia'].'</textarea>
+                            <textarea name="biografia" rows="4" cols="1" value="'. $valor['biografia'].'">'.  $valor['biografia'].'</textarea>
                           </div>
                         </div>';
+        $tabla = $tabla.'<div class="row ">
+                          <div class="column medium-8">
+                            <label for="">Biografía:</label>
+                            <textarea name="biografia_ing" rows="4" cols="1" value="'.$valor['biografia_ing'].'">'.$valor['biografia_ing'].'</textarea>
+                            </div>
+                            </div>';
         $tabla = $tabla. '<div class="row">
                             <div class="column medium-8">
                             <label>Conferencía:
