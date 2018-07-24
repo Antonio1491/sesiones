@@ -1,12 +1,21 @@
-header{
-  background-color: #2ca4a4;
-  height: 45px;
-  color: #fff;
-}
 nav{
-  background-color: #ececec;
-  height: 100vh;
-  padding-top: 4em;
+  /* background-color: #ececec; */
+  border-right: 2px solid rgb(196, 35, 156);
+  padding: 2em 0 0 1em;
+}
+header{
+  background: url("../../img/header.png") ;
+  height: 300px;
+  border-bottom: 2px solid rgb(196, 35, 156);
+  box-shadow: 3px 4px 5px #ccc;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main{
+  flex:1;
 }
 #bienvenida{
   margin-top: 5em;
@@ -42,7 +51,7 @@ nav{
   margin: 0 20%;
 }
 #traducir{
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 #acuerdos{
@@ -72,4 +81,21 @@ nav{
 .check_doc{
   height: 200px;
   margin: 0 auto;
+}
+footer{
+  padding: 1.5em 0 1.5em 0;
+  font-size: 13px;
+  color: #fff;
+  background-color: rgb(196, 35, 156);
+}
+/* footer #copy{
+  font-size: 11px;
+} */
+footer img{
+  height: 70px;
+}
+footer .copy{
+  font-size: 11px;
+  padding-top: 1em;
+  border-top: 1px solid #fff;
 }

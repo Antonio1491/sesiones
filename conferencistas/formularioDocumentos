@@ -44,6 +44,7 @@ $id_usuario = $_SESSION['id_usuario'];
                   <li>Si en su presentación utilizará videos, es necesario lo adjunte en esta plataforma, estos también serán
                     precargados en la computadora de su salón asignado.</li>
                     <li>Formatos requeridos: .MP4 o .MOV</li>
+                    <li>Puede cargar más de un archivo a la vez.</li>
                     <li>IMPORTANTE: Si su video se encuentra en YouTube, por favor envíe el link.</li>
                 </ul>
             </div>

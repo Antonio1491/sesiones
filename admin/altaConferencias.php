@@ -16,9 +16,9 @@ $lugar = $_POST['lugar'];
 
 $tema = $_POST['tema'];
 
-$descripcion = $_POST['descripcion'];
+$descripcion = addslashes($_POST['descripcion']);
 
-$descripcion_ing = $_POST['descripcion_ing'];
+$descripcion_ing = addslashes($_POST['descripcion_ing']);
 
 $registro = new RegistroConferencia();
 

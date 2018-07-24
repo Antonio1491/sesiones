@@ -19,7 +19,7 @@ $id_usuario = $_SESSION['id_usuario'];
     <script type="text/javascript" src="../js/app.js"></script>
   </head>
   <body>
-    <header><h3 class="text-center">1st International Congress of Urban Parks 2018</h3></header>
+    <header></header>
     <main>
       <div class="row collapse expanded">
         <div class="column medium-2">
@@ -41,58 +41,62 @@ $id_usuario = $_SESSION['id_usuario'];
                   <strong>Formats and recommendations for video:</strong>
                   <li>If you will use videos in your presentation, it is necessary to attach them in this platform,
                     these will also be preloaded in the computer of your assigned room.</li>
+                    <li>You can upload more than one at the same time.</li>
                     <li>Formats required: .MP4 or .MOV</li>
-                    <li>IMPORTANT: If your video is on YouTube, please send the link.</li>
+                    <!-- <li>IMPORTANT: If your video is on YouTube, please send the link.</li> -->
                 </ul>
             </div>
 
           </div>
+          <div class="row">
+            <script type="text/javascript" src="https://form.jotform.co/jsform/80848103613857"></script>
+          </div>
 
           <?php
 
-            $comprobar_documentos = new Conferencista();
-
-            $respuesta = $comprobar_documentos->comprobarDocumentos($id_usuario);
-
-            if ($respuesta == true) {
-
-              $mensaje = "<div class='row carga-doc'><div class='column medium-12'><h4 >¡Archivos cargados!</h4></div></div>
-                          <div class='row'><img src='../img/check-documentos.png' class='check_doc'></div>";
-
-              echo $mensaje;
-            }
-            else {
-
-              echo'
-              <section id="form-portafolio">
-
-                <form class="" action="cargarDocumentos.php" method="post" enctype="multipart/form-data">
-
-                  <div class="row">
-                    <div class="column medium-4">
-                      <label for="exampleFileUpload" class="">1.- Select Presentation</label>
-                      <input type="file" name="presentacion" required>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="column medium-4">
-                      <label for="exampleFileUpload" >2.- Select Video</label>
-                      <input type="file" name="video" >
-                    </div>
-
-                  </div>
-                  <div class="row">
-                    <div class="column medium-4">
-                      <label for="">Link video: </label>
-                      <input type="text" name="link" value="">
-                    </div>
-                  </div>
-
-                  <button type="submit" name="" value="Subir Archivos" class="button ">Upload files <i class="fi-upload"></i></button>
-                </form>
-              </section>';
-
-            }
+            // $comprobar_documentos = new Conferencista();
+            //
+            // $respuesta = $comprobar_documentos->comprobarDocumentos($id_usuario);
+            //
+            // if ($respuesta == true) {
+            //
+            //   $mensaje = "<div class='row carga-doc'><div class='column medium-12'><h4 >¡Archivos cargados!</h4></div></div>
+            //               <div class='row'><img src='../img/check-documentos.png' class='check_doc'></div>";
+            //
+            //   echo $mensaje;
+            // }
+            // else {
+            //
+            //   echo'
+            //   <section id="form-portafolio">
+            //
+            //     <form class="" action="cargarDocumentos.php" method="post" enctype="multipart/form-data">
+            //
+            //       <div class="row">
+            //         <div class="column medium-4">
+            //           <label for="exampleFileUpload" class="">1.- Select Presentation</label>
+            //           <input type="file" name="presentacion" required>
+            //         </div>
+            //       </div>
+            //       <div class="row">
+            //         <div class="column medium-4">
+            //           <label for="exampleFileUpload" >2.- Select Video</label>
+            //           <input type="file" name="video" >
+            //         </div>
+            //
+            //       </div>
+            //       <div class="row">
+            //         <div class="column medium-4">
+            //           <label for="">Link video: </label>
+            //           <input type="text" name="link" value="">
+            //         </div>
+            //       </div>
+            //
+            //       <button type="submit" name="" value="Subir Archivos" class="button ">Upload files <i class="fi-upload"></i></button>
+            //     </form>
+            //   </section>';
+            //
+            // }
 
            ?>
 
@@ -102,6 +106,8 @@ $id_usuario = $_SESSION['id_usuario'];
         </div>
       </div>
     </main>
-    <footer></footer>
+    <footer>
+      <?php include ("../conferencistas/footer.php"); ?>
+    </footer>
   </body>
 </html>

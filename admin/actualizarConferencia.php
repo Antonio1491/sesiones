@@ -10,8 +10,8 @@ $fecha = $_POST['fecha'];
 $hora = $_POST['hora'];
 $hora_fin = $_POST['hora_fin'];
 $lugar = $_POST['lugar'];
-$descripcion = $_POST['descripcion'];
-$descripcion_ing = $_POST['descripcion_ing'];
+$descripcion = addslashes($_POST['descripcion']);
+$descripcion_ing = addslashes($_POST['descripcion_ing']);
 $tema = $_POST['tema'];
 
 $actualizar = new ActualizarConferencia();

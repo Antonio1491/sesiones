@@ -2,7 +2,7 @@
 
    require("../inc/clases2.php");
 
-   
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,7 +19,7 @@
   <script type="text/javascript" src="../js/app.js"></script>
 </head>
 <body>
-  <header><h3 class="text-center">1er Congreso Internacional de Parques Urbanos 2018</h3></header>
+  <header></header>
   <main>
     <div class="row collapse expanded">
       <div class="column medium-2">
@@ -86,7 +86,7 @@
               </ol>
             </article>
             <article class="">
-              <h5>AVISO DE PRIACIDAD</h5>
+              <h5>AVISO DE PRIVACIDAD</h5>
               <p>Entiendo que las opiniones expresadas en mi conferencia magistral o sesión educativa son mías y no las de la
                 Asociación Nacional de Parques y Recreación de México. A través de la presente, garantizo que los materiales,
                 audiovisuales y cualquier otro material preparado para mi presentación, no infringen ningún derecho de autor ni
@@ -141,6 +141,8 @@
       </div>
     </div>
   </main>
-  <footer></footer>
+  <footer>
+    <?php include ("footer.php"); ?>
+  </footer>
 </body>
 </html>

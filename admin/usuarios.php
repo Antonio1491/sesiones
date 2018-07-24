@@ -25,9 +25,10 @@ $array_conferencias = $conferencias->listaConferencias();
     <link rel="stylesheet" href="../font/foundation-icons.css">
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/app.js"></script>
+    
   </head>
   <body>
-    <header></header>
+    <header><h4>Control de Sesiones Educativas</h4></header>
     <main class="row expanded">
       <div class="column medium-2">
         <?php include("menu.php") ?>

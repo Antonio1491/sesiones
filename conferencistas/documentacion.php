@@ -21,7 +21,7 @@ $id_usuario = $_SESSION['id_usuario'];
 
   </head>
   <body>
-    <header><h3 class="text-center">1er Congreso Internacional de Parques Urbanos 2018</h3></header>
+    <header></header>
     <main>
       <div class="row collapse expanded">
         <div class="column medium-2">
@@ -44,6 +44,7 @@ $id_usuario = $_SESSION['id_usuario'];
                   <li>Si en su presentación utilizará videos, es necesario lo adjunte en esta plataforma, estos también serán
                     precargados en la computadora de su salón asignado.</li>
                     <li>Formatos requeridos: .MP4 o .MOV</li>
+                    <li>Nota: Puede subir más de un archivo a la vez.</li>
                     <li>IMPORTANTE: Si su video se encuentra en YouTube, por favor envíe el link.</li>
                 </ul>
             </div>
@@ -107,6 +108,8 @@ $id_usuario = $_SESSION['id_usuario'];
         </div>
       </div>
     </main>
-    <footer></footer>
+    <footer>
+      <?php include ("footer.php"); ?>
+    </footer>
   </body>
 </html>

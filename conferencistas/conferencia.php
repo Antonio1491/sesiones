@@ -16,7 +16,7 @@ require('../inc/clases2.php');
     <script type="text/javascript" src="../js/app.js"></script>
   </head>
   <body>
-    <header><h3 class="text-center">1er Congreso Internacional de Parques Urbanos 2018</h3></header>
+    <header></header>
     <main>
       <div class="row collapse expanded">
         <div class="column medium-2">
@@ -67,6 +67,8 @@ require('../inc/clases2.php');
         </div>
       </div>
     </main>
-
+    <footer>
+      <?php include ("footer.php"); ?>
+    </footer>
   </body>
 </html>

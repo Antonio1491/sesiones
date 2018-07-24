@@ -17,7 +17,7 @@ require ("../inc/clases2.php");
    <script type="text/javascript" src="../js/app.js"></script>
  </head>
  <body>
-   <header><h3 class="text-center">1er Congreso Internacional de Parques Urbanos 2018</h3></header>
+   <header></header>
    <main>
      <div class="row collapse expanded">
        <div class="column medium-2">
@@ -50,36 +50,12 @@ require ("../inc/clases2.php");
              <button type="button" name="button" id="editar-datos" class="button">Editar Datos</button>
            </div> -->
          </section>
-         <section id="editar-perfil">
-            <form class="" action="actualizar_perfil.php" method="post">
-               <fieldset>
-                 <div class="row">
-                   <legend><h4>Editar Datos</h4></legend>
-                 </div>
-                 <?php
-                    $sql = "SELECT * FROM usuarios WHERE id_usuario = ".$_SESSION["id_usuario"];
-                    $resultado = $conexion->consultar($sql);
-                    while ($fila = mysqli_fetch_array($resultado, MYSQLI_ASSOC)){
-                      echo  "<div class='row'><div class='column medium-6'><label>Nombre:</label>";
-                      echo "<input type='text' name='nombre' value='".$fila["nombre"]."'></div>";
-                      echo "<div class='column medium-6'><label>Cargo:</label>";
-                      echo "<input type='text' name='cargo' value='".$fila["cargo"]."'></div></div>";
-                      echo "<div class='row'><div class='column medium-6'><label>Empresa</label>";
-                      echo "<input type='text' name='empresa' value='".$fila["empresa"]."'></div></div>";
-                      echo "<div class='row'><div class='column medium-12'><label>Biografía:</label>";
-                      echo "<textarea name='biografia' rows='6' cols='1' value='".$fila["biografia"]."' >".$fila['biografia']."</textarea></div></div>";
-                    }
-                  ?>
-               </fieldset>
-               <div class="row text-center">
-                 <div><input type="submit" name="" value="Actualizar" class="button"></div>
-               </div>
-             </form>
-
-         </section>
+        
        </div>
      </div>
    </main>
-   <footer></footer>
+   <footer>
+     <?php include ("footer.php"); ?>
+   </footer>
  </body>
  </html>

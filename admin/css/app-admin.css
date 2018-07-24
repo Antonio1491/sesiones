@@ -4,7 +4,11 @@ nav{
 }
 header{
   background-color: #439dc9;
-  height: 2em;
+  height: 40px;
+}
+header h4{
+  color: white;
+  text-align: center;
 }
 footer{
   height: 3vh;
@@ -17,7 +21,7 @@ footer{
   margin-top: 2em;
 }
 
-legend h5{
+legend h5, .titulos_descripcion{
   color: #257cbb;
 }
 td{
@@ -32,6 +36,43 @@ td{
   display: none;
 }
 
+.tabla_propuestas{
+  text-transform: uppercase;
+}
+.tabla_propuestas th{
+  border-bottom: 1px solid #606060;
+}
+.info_propuesta{
+  /* border: 1px solid red; */
+  /* display: none; */
+}
+section .content_propuesta{
+  margin-top: 40px;
+}
+.info_propuesta h5{
+  text-transform: uppercase;
+  margin: 0 auto;
+  color: #257cbb;
+  margin-bottom: 20px;
+}
+.info_propuesta .descripcion_propuesta{
+  text-align: justify;
+  color: #4f4d4d;
+  margin-top: 10px;
+}
+.info_propuesta span{
+  font-weight: bold;
+  color: #257cbb;
+}
+.tema_propuesta{
+  margin-left: 50px;
+}
+.datos_conferencista{
+  margin-top: 40px;
+  border: 1px solid #257cbb;
+  padding: 20px;
+  border-radius: 10px;
+}
 /*==========================  Avisos  =============================*/
 
 

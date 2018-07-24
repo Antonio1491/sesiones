@@ -127,6 +127,36 @@ class MostrarConferencia extends Conexion{
 
     }
 
+    public function listaPropuestas(){
+
+      $resultado = $this->conexion_db->query('SELECT DISTINCT a.id_conferencia, a.conferencia, b.nombre,
+                                            b.apellidos, b.localidad FROM conferencia AS a
+                                            INNER JOIN conferencista AS b
+                                            ON a.conferencia = b.nombre_sesion');
+
+      $respuesta = $resultado->fetch_all(MYSQLI_ASSOC);
+
+      return $respuesta;
+    }
+
+    public function descripcionPropuesta($id){
+
+      $sql = "SELECT * FROM conferencia AS a
+              WHERE $id = a.id_conferencia
+              INNER JOIN conferencista AS b
+              ON a.conferencia = b.nombre_sesion";
+
+      $consulta = $this->conexion_db->query("SELECT * FROM conferencia AS a
+              INNER JOIN conferencista AS b
+              ON a.conferencia = b.nombre_sesion
+              WHERE $id = a.id_conferencia");
+
+      $respuesta = $consulta->fetch_all(MYSQLI_ASSOC);
+
+      return $respuesta;
+
+    }
+
 }
 
 //Mostrar Firmas
@@ -268,7 +298,7 @@ class EliminarRegistro extends Conexion{
 
   public function eliminarConferencia($id){
 
-    $sql = $this->conexion_db->query("DELETE FROM conferencias WHERE id_conferencia = $id");
+    $sql = $this->conexion_db->query("DELETE FROM conferencias WHERE id_conferencia = $id ");
 
     return $sql;
 

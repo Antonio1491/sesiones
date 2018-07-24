@@ -19,7 +19,7 @@
   <script type="text/javascript" src="../js/app.js"></script>
 </head>
 <body>
-  <header><h3 class="text-center">1st International Congress of Urban Parks 2018</h3></header>
+  <header></header>
   <main>
     <div class="row collapse expanded">
       <div class="column medium-2">
@@ -145,6 +145,8 @@
       </div>
     </div>
   </main>
-  <footer></footer>
+  <footer>
+    <?php include ("../conferencistas/footer.php"); ?>
+  </footer>
 </body>
 </html>
