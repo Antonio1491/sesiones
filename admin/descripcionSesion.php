@@ -50,27 +50,38 @@ $id = $_GET['id']; ?>
             echo "<div class='descripcion_propuesta'><span>Justificación:</span> ".$valor['justificacion']."</div>";
             echo "<div class='descripcion_propuesta'><span>Objetivos:</span> ".$valor['objetivos']."</div>";
             echo "<div class='descripcion_propuesta'><span> Adicionales:</span> ".$valor['adicionales']."</div>";
+
+            }
+
             ?>
           </div>
         </section>
 
-        <div class="row info_propuesta datos_conferencista">
-          <div class="column medium-4">
+
+
             <?php
-              echo "<img src='http://congresoparques.com/registro/fotos/".$valor['foto']."'>";
-            ?>
-          </div>
-          <div class="column medium-8">
-            <?php
-              echo "<div><span>Nombre: </span> ".$valor['nombre']." ".$valor['apellidos']."</div>";
-              echo "<div><span>Email: </span> ".$valor['email'];
-              echo "<div><span>Email Asistente: </span> ".$valor['email2'];
-              echo "<div><span>Cargo: </span> ".$valor['cargo'];
-              echo "<div><span>Empresa: </span> ".$valor['empresa'];
-              echo "<div><span>Localidad: </span> ".$valor['localidad'];
-              echo "<div><span>Experiencia: </span> ".$valor['experiencia'];
-            ?>
-          </div>
+
+            $autores = $datos->mostrarAutores($id);
+
+              foreach ($autores as $valor) {
+              ?>
+              <div class="row info_propuesta datos_conferencista">
+                <div class="column medium-4">
+                  <?php
+                  echo "<img src='http://congresoparques.com/registro/fotos/".$valor['foto']."' class='foto_autor'>";
+                  ?>
+                </div>
+                <div class="column medium-8">
+                  <?php
+                    echo "<div><span>Nombre: </span> ".$valor['nombre']." ".$valor['apellidos']."</div>";
+                    echo "<div><span>Email: </span> ".$valor['email']."</div>";
+                    echo "<div><span>Email Asistente: </span> ".$valor['email2']."</div>";
+                    echo "<div><span>Cargo: </span> ".$valor['cargo']."</div>";
+                    echo "<div><span>Empresa: </span> ".$valor['empresa']."</div>";
+                    echo "<div><span>Localidad: </span> ".$valor['localidad']."</div>";
+                    echo "<div><span>Experiencia: </span> ".$valor['experiencia']."</div>";
+                  ?>
+                </div>
         </div>
         <?php } ?>
       </section>

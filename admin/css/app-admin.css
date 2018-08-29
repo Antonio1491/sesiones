@@ -73,6 +73,9 @@ section .content_propuesta{
   padding: 20px;
   border-radius: 10px;
 }
+.foto_autor{
+  width: 250px;
+}
 /*==========================  Avisos  =============================*/
 
 

@@ -132,7 +132,8 @@ class MostrarConferencia extends Conexion{
       $resultado = $this->conexion_db->query('SELECT DISTINCT a.id_conferencia, a.conferencia, b.nombre,
                                             b.apellidos, b.localidad FROM conferencia AS a
                                             INNER JOIN conferencista AS b
-                                            ON a.conferencia = b.nombre_sesion');
+                                            ON a.id_conferencia = b.id_conferencia
+                                            GROUP BY id_conferencia');
 
       $respuesta = $resultado->fetch_all(MYSQLI_ASSOC);
 
@@ -141,21 +142,32 @@ class MostrarConferencia extends Conexion{
 
     public function descripcionPropuesta($id){
 
-      $sql = "SELECT * FROM conferencia AS a
-              WHERE $id = a.id_conferencia
-              INNER JOIN conferencista AS b
-              ON a.conferencia = b.nombre_sesion";
+      $sql = "SELECT * FROM conferencia
+              WHERE $id = id_conferencia ";
 
-      $consulta = $this->conexion_db->query("SELECT * FROM conferencia AS a
-              INNER JOIN conferencista AS b
-              ON a.conferencia = b.nombre_sesion
-              WHERE $id = a.id_conferencia");
+      $consulta = $this->conexion_db->query($sql);
 
       $respuesta = $consulta->fetch_all(MYSQLI_ASSOC);
 
       return $respuesta;
 
     }
+
+    public function mostrarAutores($id){
+
+      $sql = "SELECT *
+            FROM conferencista
+            WHERE $id= id_conferencia";
+
+      $consulta = $this->conexion_db->query($sql);
+
+      $array = $consulta->fetch_all(MYSQLI_ASSOC);
+
+      return $array;
+
+    }
+
+
 
 }
 

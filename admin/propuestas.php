@@ -49,8 +49,9 @@
         foreach ($array_propuestas as $valor) {
           $i += 1;
           echo $x ="<tr id='".$valor['id_conferencia']."'>
-                    <td>".$i."</td>
-                    <td><a href='descripcionSesion.php?id=".$valor['id_conferencia']."'>".$valor['conferencia']."<a></td>
+                    <td>".$i."</td>";
+                    
+               echo"<td><a href='descripcionSesion.php?id=".$valor['id_conferencia']."'>".$valor['conferencia']."<a></td>
                     <td>".$valor['nombre']." ".$valor['apellidos']."</td>
                     <td>".$valor['localidad']."</td>
                   </tr> ";
