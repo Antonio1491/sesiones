@@ -10,14 +10,6 @@ $_SESSION['id_usuario'] = $_GET['id'];
     <link rel="stylesheet" href="css/app-admin.css">
     <link rel="stylesheet" href="../font/foundation-icons.css">
     <link rel="stylesheet" href="../css/foundation.min.css">
-
-    <script  src="../js/foundation.min.js"></script>
-    <script src="../js/jquery.js"></script>
-    <script src="../js/what-input.js"></script>
-    <script>
-     $(document).foundation();
-   </script>
-
   </head>
   <body>
     <header> <h4>Control de Sesiones Educativas</h4></header>
@@ -30,5 +22,12 @@ $_SESSION['id_usuario'] = $_GET['id'];
       </section>
     </main>
     <footer></footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js" type="text/javascript"></script>
+    <script src="../js/what-input.js" type="text/javascript"></script>
+    <script src="../js/foundation.min.js" type="text/javascript"></script>
+    <script>
+      $(document).foundation();
+    </script>
   </body>
 </html>

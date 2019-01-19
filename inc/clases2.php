@@ -4,14 +4,14 @@ require('conexion.php');
 
 class DevuelveUsuarios extends Conexion{   //utilizar variables y métodos dentro la clase conexión
 
-  public function DevuelveUsuarios(){
+  public function __construct(){
 
       parent::__construct();
 
   }
 
-  public function get_usuarios(){
-      $resultado = $this->conexion_db->query('SELECT * FROM usuarios ORDER BY id_usuario DESC');
+  public function get_usuarios(){//despliega listas de usuarios (conferencistas del congreso)
+      $resultado = $this->conexion_db->query('SELECT * FROM usuarios WHERE nivel = 2 ORDER BY id_usuario DESC');
 
       $usuarios = $resultado->fetch_all(MYSQLI_ASSOC);
 
@@ -98,7 +98,12 @@ class ListaTemas extends Conexion{
 
 }
 
-// Mostrar lista de conferencias
+
+
+
+
+// ==========   Mostrar lista de conferencias  ===============
+
 class MostrarConferencia extends Conexion{
 
     public function __construct(){
@@ -108,62 +113,73 @@ class MostrarConferencia extends Conexion{
     }
 
     public function listaConferencias(){
-
       $resultado = $this->conexion_db->query('SELECT * FROM conferencias ORDER BY id_conferencia desc');
-
       $conferencias = $resultado->fetch_all(MYSQLI_ASSOC);
-
       return $conferencias;
-
     }
 
     public function tipoConferencia(){
-
       $resultado = $this->conexion_db->query('SELECT * FROM tipo_conferencia');
-
       $respuesta = $resultado->fetch_all(MYSQLI_ASSOC);
-
       return $respuesta;
-
     }
 
-    public function listaPropuestas(){
-
-      $resultado = $this->conexion_db->query('SELECT DISTINCT a.id_conferencia, a.conferencia, b.nombre,
+    public function listaPropuestas(){  //Lista de propuestas registradas en la convocatoria
+      $resultado = $this->conexion_db->query('SELECT DISTINCT a.id_conferencia, a.conferencia, a.enlaceEncuesta, a.status, b.nombre,
                                             b.apellidos, b.localidad FROM conferencia AS a
                                             INNER JOIN conferencista AS b
                                             ON a.id_conferencia = b.id_conferencia
                                             GROUP BY id_conferencia');
-
       $respuesta = $resultado->fetch_all(MYSQLI_ASSOC);
+      return $respuesta;
+    }
 
+    public function propuestasAsignadas($id_tema){ //Asignasión de tema a usuario comité
+      $resultado = $this->conexion_db->query("SELECT DISTINCT a.id_conferencia, a.conferencia, a.id_tema, b.nombre,
+                                            b.apellidos, b.localidad FROM conferencia AS a
+                                            INNER JOIN conferencista AS b
+                                            ON a.id_conferencia = b.id_conferencia
+                                            WHERE a.id_tema = $id_tma
+                                            GROUP BY id_conferencia");
+      $respuesta = $resultado->fetch_all(MYSQLI_ASSOC);
       return $respuesta;
     }
 
     public function descripcionPropuesta($id){
-
       $sql = "SELECT * FROM conferencia
-              WHERE $id = id_conferencia ";
-
+              INNER JOIN temas ON conferencia.id_tema = temas.id_tema
+              WHERE  conferencia.id_conferencia= $id ";
       $consulta = $this->conexion_db->query($sql);
-
       $respuesta = $consulta->fetch_all(MYSQLI_ASSOC);
-
       return $respuesta;
 
     }
 
     public function mostrarAutores($id){
-
       $sql = "SELECT *
             FROM conferencista
             WHERE $id= id_conferencia";
-
       $consulta = $this->conexion_db->query($sql);
-
       $array = $consulta->fetch_all(MYSQLI_ASSOC);
-
       return $array;
+    }
+
+    public function totalPropuestas(){ //Muestra el número de conferencias registradas en la convocatoria
+      $consulta = $this->conexion_db->query("SELECT count(id_conferencia) AS totalRegistros FROM conferencia ");
+      $respuesta = $consulta->fetch_all(MYSQLI_ASSOC);
+      foreach ($respuesta as $value) {
+        $resultado = $value['totalRegistros'];
+      }
+      return $resultado;
+    }
+
+    public function aceptarPropuesta($id_propuesta){ //Aceptacion de propuesta registrada (cambio de status)
+      $sql= "UPDATE conferencia SET status = 1 WHERE id_conferencia = $id_propuesta";
+      $consulta = $this->conexion_db->query($sql);
+      return $consulta;
+    }
+
+    public function enviarPropuestaAceptada($id_propuesta){//copiar la conferencia de la tabla propuesta a tabla de aceptados
 
     }
 
@@ -171,8 +187,7 @@ class MostrarConferencia extends Conexion{
 
 }
 
-//Mostrar Firmas
-
+//========== Mostrar Firmas ================
 class Firmas extends Conexion {
 
   public function __parent(){
@@ -291,7 +306,7 @@ class DatosConferencia extends Conexion{
   }
 }
 
-// Eliminar usuarios y conferencias
+//================= Eliminar usuarios y conferencias =============================
 class EliminarRegistro extends Conexion{
 
   public function __construct(){
@@ -319,7 +334,7 @@ class EliminarRegistro extends Conexion{
 
 
 
-// =======  Sistema de login   ======
+// =================  Sistema de login   =========================
 class Login extends Conexion{
 
   public function __construct(){
@@ -343,9 +358,14 @@ class Login extends Conexion{
               foreach ($respuesta as $valor){
                 $id_usuario = $valor['id_usuario'];
                 $nivel = $valor['nivel'];
+                // $valor['id_usuario'] = $_SESSION['id_usuario'];
               }
                   if ($nivel == 1) {
                       $mensaje = header("Location: ../admin/index.php?id=$id_usuario");
+                      return $mensaje;
+                    }
+                    else if($nivel == 3){
+                      $mensaje = header("Location: ../admin/propuestas_calificar.php?id=$id_usuario");
                       return $mensaje;
                     }
                     else {
@@ -367,9 +387,9 @@ class Login extends Conexion{
   }
 
 }
+// ==============  Fin sistema de login ================
 
-
-// =============== conferencistas ==============
+// =============== conferencistas ======================
 
 class Conferencista extends Conexion
 {
@@ -478,6 +498,68 @@ class Conferencista extends Conexion
 
       }
 
+
+}
+
+
+
+class Comite extends Conexion {
+
+  public function __parent(){
+
+      parent::__construct();
+
+  }
+
+  public function sesionesAsignadas($id_usuario){
+
+    $sql = "SELECT *
+    FROM comite_evaluador
+    LEFT JOIN conferencia ON comite_evaluador.id_tema = conferencia.id_tema
+    WHERE id_usuario = $id_usuario";
+
+    $respuesta = $this->conexion_db->query($sql);
+
+    $array = $respuesta->fetch_all(MYSQLI_ASSOC);
+
+    return $array;
+
+  }
+
+  public function seleccionarTema($tematica){
+
+    $sql = "SELECT DISTINCT a.id_conferencia, a.conferencia, a.id_tema, a.enlaceEncuesta, b.nombre,
+                                          b.apellidos, b.localidad FROM conferencia AS a
+                                          INNER JOIN conferencista AS b
+                                          ON a.id_conferencia = b.id_conferencia
+                                          WHERE a.id_tema = $tematica
+                                          GROUP BY id_conferencia";
+
+    $respuesta = $this->conexion_db->query($sql);
+
+    $array = $respuesta->fetch_all(MYSQLI_ASSOC);
+
+    return $array;
+
+  }
+
+  //check individual para la calificación de las encuestas.
+  public function nombreTematica($id){
+
+    $sql = "SELECT * FROM temas WHERE id_tema = $id";
+
+    $respuesta = $this->conexion_db->query($sql);
+
+    $array = $respuesta->fetch_all(MYSQLI_ASSOC);
+
+    foreach ($array as $valor) {
+      $tema = $valor["nombre"];
+        return $tema;
+    }
+
+
+
+  }
 
 }
 

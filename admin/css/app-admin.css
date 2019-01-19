@@ -1,5 +1,5 @@
 nav{
-  background: #f7f4f4;
+  background: #f5f5f5;
   height: 97vh;
 }
 header{
@@ -14,8 +14,17 @@ footer{
   height: 3vh;
   background: #f7f4f4
 }
+nav ul.menu{
+  padding-top: 20px;
+}
 .menu{
-  padding-top: 5vh;
+  font-size: 13.5px;
+}
+nav{
+    padding-top: 40px;
+}
+nav span{
+  font-weight: bold;
 }
 .contenido{
   margin-top: 2em;
@@ -25,11 +34,15 @@ legend h5, .titulos_descripcion{
   color: #257cbb;
 }
 td{
-  font-size: 13px;
+  font-size: 12px;
   color: #6a6a6a;
 }
 .eliminar{
   color: #b30000;
+}
+.aceptada{
+  color: #1e8e43;
+  /* background-color: #1e8e43; */
 }
 
 .registro{
@@ -41,6 +54,11 @@ td{
 }
 .tabla_propuestas th{
   border-bottom: 1px solid #606060;
+}
+.tabla_propuestas th:nth-of-type(2),
+.tabla_propuestas th:nth-of-type(3)
+{
+  width: 350px;
 }
 .info_propuesta{
   /* border: 1px solid red; */
@@ -95,4 +113,23 @@ section .content_propuesta{
 }
 .doc_si{
   font-size: 16px;
+}
+
+
+.titulo_tematicas{
+  color: #2f5986;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+
+
+.enlace_encuesta:hover{
+  color: #7990af;
+}
+.enlace_encuesta:active{
+  color: #5a28a2;
+}
+.enlace_encuesta:visited{
+  color: #b30101;
 }

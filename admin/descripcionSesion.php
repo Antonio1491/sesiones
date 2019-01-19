@@ -1,4 +1,5 @@
-<?php
+<?php session_start();
+
 include('../inc/clases2.php');
 $id = $_GET['id']; ?>
 <!DOCTYPE html>
@@ -23,7 +24,7 @@ $id = $_GET['id']; ?>
     <header> <h4>Control de Sesiones Educativas</h4></header>
     <main class="row expanded">
       <div class="medium-2">
-        <?php include("menu.php") ?>
+        <?php include("menu_comite.php") ?>
       </div>
       <section class="column medium-10">
         <?php
@@ -41,7 +42,7 @@ $id = $_GET['id']; ?>
           </div>
           <div class="row info_propuesta">
             <?php
-            echo "<span>Modalidad: </span>".$valor['Modalidad']."<span class='tema_propuesta'>Tema: </span>".$valor['id_tema'];
+            echo "<span>Modalidad: </span>".$valor['Modalidad']."<span class='tema_propuesta'>Tema: </span>".$valor['nombre'];
             ?>
           </div>
           <div class="row info_propuesta">

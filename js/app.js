@@ -1,10 +1,5 @@
-// $(document).foundation()
-//
-// $(document).ready(fuction(){
-//   alert("bandera");
-// });
-//
-//
+$(document).foundation();
+
 $(document).ready(function(){
   $("#agregar").click(function(){
     $(".registro").fadeToggle();
@@ -17,7 +12,8 @@ $(document).ready(function(){
     });
 });
 
-$(document).ready(function(){
+$(document).ready(function
+
   $("#editar-datos").click(function(){
     $("#editar-perfil").fadeToggle();
   });

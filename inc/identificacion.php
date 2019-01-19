@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('clases2.php');
 
 // $email = $mysqli->real_escape_string($_POST['email']);
