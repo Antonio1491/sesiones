@@ -23,9 +23,9 @@ $array_conferencias = $conferencias->listaConferencias();
     <link rel="stylesheet" href="../css/foundation.css">
     <link rel="stylesheet" href="css/app-admin.css">
     <link rel="stylesheet" href="../font/foundation-icons.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="../js/app.js"></script>
-    
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../js/app.js"></script> -->
+
   </head>
   <body>
     <header><h4>Control de Sesiones Educativas</h4></header>
@@ -167,5 +167,12 @@ $array_conferencias = $conferencias->listaConferencias();
     </main>
 
     <footer></footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" type="text/javascript"></script>
+    <script src="../js/what-input.js" type="text/javascript"></script>
+    <script src="../js/foundation.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/app.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
   </body>
 </html>

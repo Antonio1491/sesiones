@@ -22,12 +22,14 @@ $descripcion_ing = addslashes($_POST['descripcion_ing']);
 
 $registro = new RegistroConferencia();
 
+$evento = "CPM2019";
+
 $resultado = $registro->registrar($conferencia, $conferencia_ing, $fecha, $hora, $hora_fin,
-                                  $lugar, $descripcion, $descripcion_ing, $tema);
+                                  $lugar, $descripcion, $descripcion_ing, $tema, $evento);
 
 if ($resultado) {
 
-  $mensaje = header("Location: conferencias.php");
+  $mensaje = header("Location:". getenv('HTTP_REFERER'));
 
   echo $mensaje;
 

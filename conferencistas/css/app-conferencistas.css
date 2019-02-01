@@ -1,12 +1,12 @@
 nav{
   /* background-color: #ececec; */
-  border-right: 2px solid rgb(196, 35, 156);
+  border-right: 2px solid rgb(200, 15, 171);
   padding: 2em 0 0 1em;
 }
 header{
   background: url("../../img/header.png") ;
-  height: 300px;
-  border-bottom: 2px solid rgb(196, 35, 156);
+  height: 180px;
+  border-bottom: 2px solid rgb(200, 15, 171);
   box-shadow: 3px 4px 5px #ccc;
 }
 body{
@@ -17,6 +17,15 @@ body{
 main{
   flex:1;
 }
+form.formulario label{
+  color: #2ca4a4;
+  font-weight: bold;
+}
+form.formulario input,
+form.formulario textarea{
+  color: #5b5b5b;
+}
+
 #bienvenida{
   margin-top: 5em;
   color: #555555;
@@ -32,6 +41,7 @@ main{
 }
 .contenido-perfil{
   text-align: justify;
+  color: #5b5b5b;
 }
 #informacion-perfil{
   margin-top: 3em;
@@ -86,7 +96,7 @@ footer{
   padding: 1.5em 0 1.5em 0;
   font-size: 13px;
   color: #fff;
-  background-color: rgb(196, 35, 156);
+  background-color: rgb(0, 123, 120);
 }
 /* footer #copy{
   font-size: 11px;

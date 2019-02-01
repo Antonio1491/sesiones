@@ -22,7 +22,7 @@ $resultado = $actualizar->actualizar($conferencia, $conferencia_ing, $fecha, $ho
 
   if ($resultado) {
 
-      $mensaje = header("Location: conferencias.php");
+      $mensaje = "<script>window.history.go(-2);</script>";
 
       echo $mensaje;
 

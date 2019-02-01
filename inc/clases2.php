@@ -47,6 +47,19 @@ class ActualizarUsuario extends Conexion{
             return $resultado;
 
   }
+
+  public function actualizarPerfil($nombre, $cargo, $empresa, $biografia, $id){
+      $sql = "UPDATE usuarios SET nombre = '$nombre',
+            cargo = '$cargo',
+            empresa = '$empresa',
+            biografia = '$biografia'
+            WHERE id_usuario = '$id'  ";
+
+            $consulta = $this->conexion_db->query($sql);
+
+            return $consulta;
+  }
+
 }
 
 //Actualizar Conferencia
@@ -112,8 +125,12 @@ class MostrarConferencia extends Conexion{
 
     }
 
-    public function listaConferencias(){
-      $resultado = $this->conexion_db->query('SELECT * FROM conferencias ORDER BY id_conferencia desc');
+    public function listaConferencias($evento){
+      $sql = "SELECT *
+              FROM conferencias
+              WHERE evento = '$evento'
+              ORDER BY id_conferencia DESC";
+      $resultado = $this->conexion_db->query($sql);
       $conferencias = $resultado->fetch_all(MYSQLI_ASSOC);
       return $conferencias;
     }
@@ -240,14 +257,14 @@ class RegistroConferencia extends Conexion{
 
   }
 
-  public function registrar($conf, $conf_ing, $f, $hr, $hrf, $lugar, $desc, $desc_ing, $tema){
+  public function registrar($conf, $conf_ing, $f, $hr, $hrf, $lugar, $desc, $desc_ing, $tema, $evento){
 
-    echo $conf, $f, $hr, $hrf, $lugar, $desc, $tema;
+    // echo $conf, $f, $hr, $hrf, $lugar, $desc, $tema;
 
     $sql = $this->conexion_db->query("INSERT INTO conferencias
                                       VALUES (null, '$conf', '$conf_ing', '$f',
                                               '$hr', '$hrf', '$lugar',
-                                              '$desc', '$desc_ing', '$tema')");
+                                              '$desc', '$desc_ing', '$tema', null, '$evento')");
 
     return $sql;
 
@@ -562,6 +579,29 @@ class Comite extends Conexion {
   }
 
 }
+
+
+//Información de voluntarios
+class Voluntarios extends Conexion{
+
+  public function __construct(){
+
+    parent::__construct();
+
+  }
+
+  public function listaVoluntarios(){
+      $sql = "SELECT * FROM voluntarios";
+      $consultar = $this->conexion_db->query($sql);
+      $array_voluntarios = $consultar->fetch_all(MYSQLI_ASSOC);
+
+      return $array_voluntarios;
+
+    }
+
+  }
+
+
 
 
 

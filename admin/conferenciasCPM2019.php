@@ -11,8 +11,6 @@ require("../inc/clases2.php");
     <link rel="stylesheet" href="../css/foundation.css">
     <link rel="stylesheet" href="css/app-admin.css">
     <link rel="stylesheet" href="../font/foundation-icons.css">
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="../js/app.js"></script> -->
   </head>
   <body>
     <header></header>
@@ -24,7 +22,7 @@ require("../inc/clases2.php");
       <div class="column medium-10 contenido">
         <div class="row">
           <div class="column ">
-            <button type="button" name="button" id="agregar" class="button" disabled>
+            <button type="button" name="button" id="agregar" class="button">
               <i class="fi-plus"></i> Agregar Conferencia
             </button>
           </div>
@@ -111,10 +109,9 @@ require("../inc/clases2.php");
         </div>
 
       <div class="row" id="listaConferencias">
-
           <?php
               $lista_conferencias = new MostrarConferencia();
-              $evento = "CPM2018";
+              $evento = "CPM2019";
               $respuesta = $lista_conferencias->listaConferencias($evento);
 
             echo "<table>

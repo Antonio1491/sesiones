@@ -12,7 +12,7 @@ $(document).ready(function(){
     });
 });
 
-$(document).ready(function
+$(document).ready(function(){
 
   $("#editar-datos").click(function(){
     $("#editar-perfil").fadeToggle();

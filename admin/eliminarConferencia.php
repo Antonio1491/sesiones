@@ -9,7 +9,7 @@ $resultado = $eliminar->eliminarConferencia($id);
 
 if ($resultado) {
 
-      $mensaje = header("Location: conferencias.php");
+      $mensaje = header("Location:". getenv('HTTP_REFERER'));
 
       echo $mensaje;
 

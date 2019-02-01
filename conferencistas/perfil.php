@@ -1,7 +1,5 @@
 <?php session_start();
-
 require ("../inc/clases2.php");
-
  ?>
  <!DOCTYPE html>
  <html lang="es">
@@ -28,12 +26,8 @@ require ("../inc/clases2.php");
            <div class="row">
              <?php
 
-             // echo $_SESSION['id_usuario'];
-
               $datos_conferencista = new Conferencista();
-
               $array_datos = $datos_conferencista->mostrarDatos($_SESSION['id_usuario']);
-
               foreach ($array_datos as $valor) {
 
                   echo "<div class='contenido-perfil'><img class='foto' src='http://www.congresoparques.com/sesiones/img/conferencistas/".$valor['foto']."'>";
@@ -42,15 +36,29 @@ require ("../inc/clases2.php");
                   echo "<br><strong>Empresa: </strong>" .$valor["empresa"];
                   echo "<br><p><strong>Biografía: </strong>" .$valor["biografia"];
                   echo "</p>";
+                  echo "<td><div class='text-center'>
+                            <a href='editarPerfil.php?id=".$valor['id_usuario']."' title='Editar' class='button'>
+                            <i class='fi-pencil'></i> Editar Perfil</a>
+
+                            </div>
+                        </td>";
                 }
 
               ?>
            </div>
-           <!-- <div class="row">
-             <button type="button" name="button" id="editar-datos" class="button">Editar Datos</button>
-           </div> -->
+           <div class="row">
+            <div class="">
+              <p>*Si deseas sustituir tu fotografía o si aún no tienes, sube el archivo de imagen para que podamos presentarte en nuestro sitio web.</p>
+              <form class="" action="index.html" method="post" enctype="multipart/form-data">
+                <div class="column medium-4">
+                  <label for="exampleFileUpload" >Seleccionar Imagen</label>
+                  <input type="file" id="exampleFileUpload" >
+                </div>
+              </form>
+            </div>
+           </div>
          </section>
-        
+
        </div>
      </div>
    </main>

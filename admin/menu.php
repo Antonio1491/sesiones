@@ -19,6 +19,9 @@
             <li><a href="resultadosTema.php?tema=5">Salud y medio ambiente</a></li>
             <li><a href="resultadosTema.php?tema=6">Función pública y participación ciudadana</a></li>
           </ul>
+          <li><a href="usuariosCPM2019.php"><i class="fi-torsos-all"></i> Usuarios</a></li>
+          <li><a href="conferenciasCPM2019.php"><i class="fi-megaphone"></i> Conferencias</a></li>
+          <li><a href="voluntarios.php"><i class="fi-torsos-all"></i> Voluntarios</a></li>
         </li>
       </ul>
     </li>
