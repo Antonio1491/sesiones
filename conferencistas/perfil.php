@@ -30,7 +30,7 @@ require ("../inc/clases2.php");
               $array_datos = $datos_conferencista->mostrarDatos($_SESSION['id_usuario']);
               foreach ($array_datos as $valor) {
 
-                  echo "<div class='contenido-perfil'><img class='foto' src='http://www.congresoparques.com/sesiones/img/conferencistas/".$valor['foto']."'>";
+                  echo "<div class='contenido-perfil'><img class='foto' src='../img/conferencistas/".$valor['foto']."'>";
                   echo "<strong>Nombre: </strong>" .$valor['nombre'];
                   echo "<br><strong>Cargo: </strong>" .$valor["cargo"];
                   echo "<br><strong>Empresa: </strong>" .$valor["empresa"];
@@ -46,7 +46,7 @@ require ("../inc/clases2.php");
 
               ?>
            </div>
-           <div class="row">
+           <!-- <div class="row">
             <div class="">
               <p>*Si deseas sustituir tu fotografía o si aún no tienes, sube el archivo de imagen para que podamos presentarte en nuestro sitio web.</p>
               <form class="" action="index.html" method="post" enctype="multipart/form-data">
@@ -56,7 +56,7 @@ require ("../inc/clases2.php");
                 </div>
               </form>
             </div>
-           </div>
+           </div> -->
          </section>
 
        </div>

@@ -13,10 +13,10 @@ $id_usuario = $_SESSION['id_usuario'];
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Documentación</title>
     <link rel="stylesheet" href="../css/foundation.css">
-    <link rel="stylesheet" href="css/app-conferencistas.css">
     <link rel="stylesheet" href="../font/foundation-icons.css">
+    <link rel="stylesheet" href="css/app-conferencistas.css">
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="../js/app.js"></script>
+    <script src="../js/app.js"></script>
 
 
   </head>
@@ -29,30 +29,32 @@ $id_usuario = $_SESSION['id_usuario'];
         </div>
         <div class="column medium-10">
           <div class="row">
-            <div class="column medium-12">
-              <h5>Documentos</h5>
-              <p>En este apartado podrá cargar el material audiovisual que utilizará en su conferencia magistral o sesión educativa.</p>
-              <p>Es necesario que cargue todos los archivos que utilizará en su presentación antes del VIERNES 30 DE MARZO DEL 2018,
-                ya que su presentación será precargada en la computadora de su salón asignado. No es necesario que lleve una unidad
-                USB el día de la presentación.</p>
-                <strong>Formatos y recomendaciones:</strong>
-                <ul>
-                  <li>Únicamente se aceptarán presentaciones de Power Point (.pptx) </li>
-                  <li>Visualización 16:9</li>
-                  <li>Tamaño de letra recomendada 18 o más grande</li>
-                  <strong>Formatos y recomendaciones para video:</strong>
-                  <li>Si en su presentación utilizará videos, es necesario lo adjunte en esta plataforma, estos también serán
-                    precargados en la computadora de su salón asignado.</li>
-                    <li>Formatos requeridos: .MP4 o .MOV</li>
-                    <li>Nota: Puede subir más de un archivo a la vez.</li>
-                    <li>IMPORTANTE: Si su video se encuentra en YouTube, por favor envíe el link.</li>
-                </ul>
-            </div>
+            <main>
+              <section>
+                <h5>Documentos</h5>
+                <p>En este apartado podrá cargar el material audiovisual que utilizará en su conferencia magistral o sesión educativa.</p>
+                <p>Es necesario que cargue todos los archivos que utilizará en su presentación antes del VIERNES 30 DE ABRIL DEL 2018,
+                  ya que su presentación será precargada en la computadora de su salón asignado.</p>
+                  <strong>Formatos y recomendaciones:</strong>
+                  <ul>
+                    <li>Únicamente se aceptarán presentaciones de Power Point (.pptx) </li>
+                    <li>Visualización 16:9</li>
+                    <li>Tamaño de letra recomendada 18 o más grande</li>
+                    <strong>Formatos y recomendaciones para video:</strong>
+                    <li>Si en su presentación utilizará videos, es necesario lo adjunte en esta plataforma, estos también serán
+                      precargados en la computadora de su salón asignado.</li>
+                      <li>Formatos requeridos: .MP4 o .MOV</li>
+                      <li>Nota: Puede subir más de un archivo a la vez.</li>
+                      <li>IMPORTANTE: Si su video se encuentra en YouTube, por favor envíe el link.</li>
+                  </ul>
+                </div>
+              </section>
 
+              <div class="row column medium-12">
+                <script type="text/javascript" src="https://form.jotform.co/jsform/80504775718867"></script>
+              </div>
           </div>
-          <div class="row">
-            <script type="text/javascript" src="https://form.jotform.co/jsform/80504775718867"></script>
-          </div>
+
 
           <?php
 

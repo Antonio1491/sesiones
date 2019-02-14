@@ -6,13 +6,9 @@ require('../inc/clases2.php');
 
 // Crear una instancia para que se ejecute el constructor de la clase
 $usuarios = new DevuelveUsuarios();
-$evento = "CPM2018";
+$evento = "CPM2019";
 $array_usuarios = $usuarios->get_usuarios($evento);
-
 $conferencias = new MostrarConferencia();
-
-
-
 $array_conferencias = $conferencias->listaConferencias($evento);
 
 // require("../inc/datos_conexion.php");

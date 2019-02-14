@@ -21,6 +21,8 @@ $prioridad = $_POST['prioridad'];
 
 $nivel = 2;
 
+$evento = "CPM2019";
+
 $fotografia = $_FILES['fotografia']['name'];
 $extraerNombre = $_FILES['fotografia']['tmp_name'];
 $destino = "../img/conferencistas/".$fotografia ;
@@ -28,13 +30,14 @@ copy($extraerNombre, $destino);
 
 $insertar = new RegistrarUsuario();
 
+
 $resultado = $insertar->registroDeUsuario($nombre, $cargo, $cargo_ing, $empresa,
                                           $empresa_ing, $biografia, $biografia_ing, $fotografia,
-                                          $usuario, $password, $nivel, $prioridad, $conferencia);
+                                          $usuario, $password, $nivel, $prioridad, $conferencia, $evento);
 
     if ($resultado) {
 
-      $mensaje = header("Location: usuarios.php");
+      $mensaje = header("Location:". getenv('HTTP_REFERER'));
 
       echo $mensaje;
 

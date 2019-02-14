@@ -20,7 +20,7 @@ $resultado = $actualizar->actualizar($nombre, $cargo, $cargo_ing, $empresa, $emp
 
 if ($resultado) {
 
-          $mensaje = header("Location: usuarios.php");
+          $mensaje = header("Location:". getenv('HTTP_REFERER'));
 
           echo $mensaje;
     }

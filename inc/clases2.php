@@ -10,8 +10,9 @@ class DevuelveUsuarios extends Conexion{   //utilizar variables y métodos dentr
 
   }
 
-  public function get_usuarios(){//despliega listas de usuarios (conferencistas del congreso)
-      $resultado = $this->conexion_db->query('SELECT * FROM usuarios WHERE nivel = 2 ORDER BY id_usuario DESC');
+  public function get_usuarios($evento){//despliega listas de usuarios (conferencistas del congreso)
+      $resultado = $this->conexion_db->query("SELECT * FROM usuarios WHERE nivel = 2 AND evento = '$evento'
+                              ORDER BY id_usuario DESC");
 
       $usuarios = $resultado->fetch_all(MYSQLI_ASSOC);
 
@@ -234,14 +235,14 @@ class RegistrarUsuario extends Conexion{
 
   }
   public function registroDeUsuario($nombre, $cargo, $cargo_ing, $empresa, $empresa_ing, $biografia, $biografia_ing, $fotografia, $usuario,
-                                    $password, $nivel, $prioridad, $conferencia){
+                                    $password, $nivel, $prioridad, $conferencia, $evento){
 
       $resultado = $this->conexion_db->query("INSERT INTO usuarios
                                               VALUES ( null, '$nombre', '$cargo','$cargo_ing',
                                                 '$empresa', '$empresa_ing', '$biografia', '$biografia_ing',
                                                 '$fotografia', '$usuario',
                                                 '$password', '$nivel', '$prioridad',
-                                                0,'$conferencia')");
+                                                0,'$conferencia', '$evento')");
 
       return $resultado;
 

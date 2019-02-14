@@ -31,7 +31,7 @@
             <img src="../img/usa.png" alt="">
           </div> -->
           <div class="row">
-            <p><strong>¡Hola gracias por formar parte del 1er Congreso Internacional de Parques Urbanos!</strong></p>
+            <p><strong>¡Gracias por formar parte del 2do Congreso Internacional de Parques Urbanos!</strong></p>
             <p>Esta es una plataforma exclusiva para conferencistas magistrales y ponentes de sesiones educativas.
               En ella, podrás realizar acciones indispensables para hacer de tu momento de exposición fácil y eficiente como:</p>
             <ul>

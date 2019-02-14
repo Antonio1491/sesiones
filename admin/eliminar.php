@@ -10,7 +10,7 @@ $resultado = $eliminar->eliminar($id, $tabla);
 
 if ($resultado) {
 
-      $mensaje = header("Location: usuarios.php");
+      $mensaje = header("Location:". getenv('HTTP_REFERER'));
 
       echo $mensaje;
 
