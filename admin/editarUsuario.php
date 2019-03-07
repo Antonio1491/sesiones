@@ -75,6 +75,12 @@ $array_datos_usuario = $usuario->mostrarDatosUsuario($id);
                           <input type="text" name="empresa_ing" value="'.$valor['empresa_ing'].'" placeholder="Empresa" >
                         </div>
                       </div>';
+        $tabla = $tabla.'<div class="row">
+                        <div class="column medium-8">
+                          <label for="">Localidad:</label>
+                          <input type="text" name="localidad" value="'.$valor['localidad'].'" placeholder="País, Ciudad" required>
+                        </div>
+                      </div>';
         $tabla = $tabla.'<div class="row ">
                           <div class="column medium-8">
                             <label for="">Biografía:</label>
@@ -93,7 +99,7 @@ $array_datos_usuario = $usuario->mostrarDatosUsuario($id);
                               <select name="conferencia">
                               <option value="'.$valor['id_conferencia'].'">'.$valor['nombre_conferencia'].'</option>';
                                 $lista_conferencias = new MostrarConferencia();
-                                $lista_desplegable = $lista_conferencias->listaConferencias();
+                                $lista_desplegable = $lista_conferencias->listaConferencias('CPM2019');
                                 foreach ($lista_desplegable as $value) {
         $tabla = $tabla.        '<option value="'.$value['id_conferencia'].'">'.$value['nombre_conferencia'].'</option>';
                                 }

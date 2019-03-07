@@ -6,7 +6,7 @@
        <div class="medium-4 text-center">
          <p id="datos-pie">Mérida, Yucatán, México<br>
         Tel:  (999) 944 40 60<br>
-        contenido@congresoparques.com
+        contenido@anpr.org.mx
         </p>
        </div>
        <div class="medium-4 text-center">

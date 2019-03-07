@@ -106,6 +106,12 @@ $array_conferencias = $conferencias->listaConferencias($evento);
                       </label>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="column medium-8">
+                      <label for="">Localidad:</label>
+                      <input type="text" name="localidad" value="" placeholder="País, Ciudad" required>
+                    </div>
+                  </div>
                   <div class="row ">
                     <div class="column medium-8">
                       <label for="">Fotografía:</label>

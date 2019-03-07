@@ -29,6 +29,8 @@ require("../inc/clases2.php");
                         <th>E-mail</th>
                         <th>Celular</th>
                         <th>Universidad</th>
+                        <th>Turno 1</th>
+                        <th>Turno 2</th>
                       </tr>
                     </thead>
                     <tbody>";
@@ -39,6 +41,7 @@ require("../inc/clases2.php");
                           <td>" .$valor['nombre']. "</td>
                           <td>" .$valor['apellido_paterno']. "</td>
                           <td>" .$valor['email']. "</td>
+                          <td>" .$valor['celular']. "</td>
                           <td>" .$valor['universidad']. "</td>
                         </tr>";
                       }

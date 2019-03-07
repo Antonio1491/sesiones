@@ -14,6 +14,7 @@ $cargo = $_POST['cargo'];
 $cargo_ing = $_POST['cargo_ing'];
 $empresa = $_POST['empresa'];
 $empresa_ing = $_POST['empresa_ing'];
+$localidad = $_POST['localidad'];
 $biografia = addslashes($_POST['biografia']);
 $biografia_ing = addslashes($_POST['biografia_ing']);
 $conferencia = $_POST['conferencia'];
@@ -32,7 +33,7 @@ $insertar = new RegistrarUsuario();
 
 
 $resultado = $insertar->registroDeUsuario($nombre, $cargo, $cargo_ing, $empresa,
-                                          $empresa_ing, $biografia, $biografia_ing, $fotografia,
+                                          $empresa_ing, $biografia, $biografia_ing, $localidad, $fotografia,
                                           $usuario, $password, $nivel, $prioridad, $conferencia, $evento);
 
     if ($resultado) {

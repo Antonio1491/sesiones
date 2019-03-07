@@ -30,7 +30,7 @@ class ActualizarUsuario extends Conexion{
 
   }
   public function actualizar($nombre, $cargo, $cargo_ing, $empresa, $empresa_ing,
-                                  $biografia, $biografia_ing, $usuario, $conferencia, $id){
+                                  $biografia, $biografia_ing, $localidad, $usuario, $conferencia, $id){
 
       $sql = "UPDATE usuarios SET nombre = '$nombre',
             cargo = '$cargo',
@@ -39,6 +39,7 @@ class ActualizarUsuario extends Conexion{
             empresa_ing = '$empresa_ing',
             biografia = '$biografia',
             biografia_ing = '$biografia_ing',
+            localidad = '$localidad',
             usuario = '$usuario',
             id_conferencia = '$conferencia'
             WHERE id_usuario = '$id' ";
@@ -234,12 +235,12 @@ class RegistrarUsuario extends Conexion{
     parent::__construct();
 
   }
-  public function registroDeUsuario($nombre, $cargo, $cargo_ing, $empresa, $empresa_ing, $biografia, $biografia_ing, $fotografia, $usuario,
+  public function registroDeUsuario($nombre, $cargo, $cargo_ing, $empresa, $empresa_ing, $biografia, $biografia_ing, $localidad, $fotografia, $usuario,
                                     $password, $nivel, $prioridad, $conferencia, $evento){
 
       $resultado = $this->conexion_db->query("INSERT INTO usuarios
                                               VALUES ( null, '$nombre', '$cargo','$cargo_ing',
-                                                '$empresa', '$empresa_ing', '$biografia', '$biografia_ing',
+                                                '$empresa', '$empresa_ing', '$biografia', '$biografia_ing', '$localidad',
                                                 '$fotografia', '$usuario',
                                                 '$password', '$nivel', '$prioridad',
                                                 0,'$conferencia', '$evento')");
@@ -287,7 +288,7 @@ class DatosUsuario extends Conexion{
 
     $folio = $id;
 
-    $resultado = $this->conexion_db->query("SELECT a.nombre, a.cargo, a.cargo_ing, a.empresa, a.empresa_ing, a.biografia, a.biografia_ing, a.usuario, a.id_conferencia, b.nombre_conferencia
+    $resultado = $this->conexion_db->query("SELECT a.nombre, a.cargo, a.cargo_ing, a.empresa, a.empresa_ing, a.biografia, a.biografia_ing, a.localidad, a.usuario, a.id_conferencia, b.nombre_conferencia
     FROM usuarios  AS a
     RIGHT JOIN conferencias AS b ON b.id_conferencia = a.id_conferencia
     WHERE id_usuario = '$folio' ");
